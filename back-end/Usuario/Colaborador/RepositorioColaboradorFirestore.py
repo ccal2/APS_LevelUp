@@ -13,7 +13,7 @@ class RepositorioColaboradorFirestore(IRepositorioColaborador):
         self.colecao = firestore.client().collection(DB_COLABORADORES)
 
     def inserir(self, colaborador: Colaborador):
-        dicionarioColaborador = ColaboradorDicionarioConversor.colaboradorParaDicionario(Colaborador)
+        dicionarioColaborador = ColaboradorDicionarioConversor.colaboradorParaDicionario(colaborador)
 
         # Inserir objeto no banco
         self.colecao.document(colaborador.email).set(dicionarioColaborador)
