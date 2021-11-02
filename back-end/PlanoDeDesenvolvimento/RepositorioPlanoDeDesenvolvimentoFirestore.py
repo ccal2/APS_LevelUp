@@ -11,21 +11,28 @@ class RepositorioPlanoDeDesenvolvimentoFirestore(IRepositorioPlanoDeDesenvolvime
         self.colecao = firestore.client().collection(DB_PLANOS_DE_DESENVOLVIMENTO)
 
     def inserir(self, planoDeDesenvolvimento: PlanoDeDesenvolvimento):
+        nomes_habilidades = list(map(lambda x: x.titulo, planoDeDesenvolvimento.habilidades))
+
         planoDeDesenvolvimentoDict = {
-            "habilidades": planoDeDesenvolvimento.habilidades,
-            "colaborador": planoDeDesenvolvimento.colaborador,
+            "habilidades": nomes_habilidades,
+            "colaborador": planoDeDesenvolvimento.colaborador.email,
         }
 
-        self.colecao.document(planoDeDesenvolvimento.email).set(planoDeDesenvolvimentoDict)
+        self.colecao.document(planoDeDesenvolvimento.collaborador.email).set(planoDeDesenvolvimentoDict)
 
-    def consultarPlanoDeDesenvolvimento(self, id: str) -> Optional[PlanoDeDesenvolvimento]:
-        documento = self.colecao.document(id)
+    def consultarPlanoDeDesenvolvimento(self, emailColaborador: str) -> Optional[PlanoDeDesenvolvimento]:
+        documento = self.colecao.document(emailColaborador)
         planoDeDesenvolvimento = documento.get()
 
         if not planoDeDesenvolvimento.exists:
             return None
 
-        return planoDeDesenvolvimento
+        planoDeDesenvolvimentoDict = planoDeDesenvolvimento.dict()
+
+        return PlanoDeDesenvolvimento(
+            habilidades=planoDeDesenvolvimentoDict.get("habilidades"),
+            colaborador=planoDeDesenvolvimento.get("colaborador")
+        )
 
     def atualizar(self, planoDeDesenvolvimento: PlanoDeDesenvolvimento):
         return
