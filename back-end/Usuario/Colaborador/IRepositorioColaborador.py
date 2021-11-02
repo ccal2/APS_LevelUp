@@ -1,6 +1,6 @@
 import abc
 from typing import Optional
-from Colaborador import Colaborador
+from Usuario.Colaborador.Colaborador import Colaborador
 
 class IRepositorioColaborador(metaclass=abc.ABCMeta):
 

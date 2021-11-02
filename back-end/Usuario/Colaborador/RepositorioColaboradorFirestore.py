@@ -1,8 +1,8 @@
 import abc
 from typing import Optional
-from Colaborador import Colaborador
+from Usuario.Colaborador.Colaborador import Colaborador
 from Interesse.Interesse import Interesse
-from IRepositorioColaborador import IRepositorioColaborador
+from Usuario.Colaborador.IRepositorioColaborador import IRepositorioColaborador
 from Conversores.ColaboradorDicionarioConversor import ColaboradorDicionarioConversor
 from firebase_admin import firestore
 from constants import *
