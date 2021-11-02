@@ -8,4 +8,3 @@ app = Flask(__name__)
 # Initialize Firestore DB
 cred = credentials.Certificate('serviceAccountKey.json')
 default_app = initialize_app(cred)
-db = firestore.client()
