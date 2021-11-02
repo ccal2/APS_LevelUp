@@ -51,7 +51,8 @@ class RepositorioColaboradorFirestore(IRepositorioColaborador):
         )
 
     def atualizar(self, colaborador: Colaborador):
-        return
+        # O método usado para inserir um objeto também pode ser usado para sobrescrevê-lo
+        self.inserir(colaborador)
 
     def remover(self, colaborador: Colaborador):
-        return
+        self.colecao.document(colaborador.email).delete()
