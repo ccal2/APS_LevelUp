@@ -6,4 +6,4 @@ class Email:
         self.email = email
 
     def validar(self) -> bool:
-        return not (re.fullmatch(pattern=r"[^@]+@[^@]+\.[^@]+", string=self.email) is None)
+        return re.fullmatch(pattern=r"[^@]+@[^@]+\.[^@]+", string=self.email) is not None
