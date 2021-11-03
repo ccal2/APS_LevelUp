@@ -1,5 +1,5 @@
-from Usuario.Usuario import Usuario
-from Interesse.Interesse import Interesse
+from model.Usuario.Usuario import Usuario
+from model.Interesse.Interesse import Interesse
 
 
 class Colaborador(Usuario):

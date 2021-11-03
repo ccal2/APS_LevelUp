@@ -1,12 +1,7 @@
 # Required imports
 import os
 from app import app
-
-
-@app.route("/", methods=["GET"])
-def hello():
-    return "Hello World!"
-
+from routes import *
 
 port = int(os.environ.get("PORT", 8080))
 if __name__ == "__main__":

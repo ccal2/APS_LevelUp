@@ -1,7 +1,8 @@
 import abc
 from typing import Optional
-from Habilidade import Habilidade
-from Interesse.Interesse import Interesse
+
+from model.Habilidade.Habilidade import Habilidade
+from model.Interesse.Interesse import Interesse
 
 class IRepositorioHabilidade(metaclass=abc.ABCMeta):
 

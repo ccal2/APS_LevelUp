@@ -1,9 +1,10 @@
-import abc
 from typing import Optional
-from Habilidade import Habilidade
-from IRepositorioHabilidade import IRepositorioHabilidade
 from firebase_admin import firestore
-from constants import *
+from Utils.constants import *
+
+from model.Habilidade.Habilidade import Habilidade
+from model.Habilidade.IRepositorioHabilidade import IRepositorioHabilidade
+
 
 class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
 

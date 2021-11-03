@@ -1,8 +1,10 @@
 from typing import Optional
-from Interesse import Interesse
-from IRepositorioInteresse import IRepositorioInteresse
 from firebase_admin import firestore
-from constants import *
+from Utils.constants import *
+
+from model.Interesse.Interesse import Interesse
+from model.Interesse.IRepositorioInteresse import IRepositorioInteresse
+
 
 class RepositorioInteresseFirestore(IRepositorioInteresse):
 

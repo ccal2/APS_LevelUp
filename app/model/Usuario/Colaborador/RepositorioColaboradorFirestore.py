@@ -1,11 +1,13 @@
 import abc
 from typing import Optional
-from Usuario.Colaborador.Colaborador import Colaborador
-from Interesse.Interesse import Interesse
-from Usuario.Colaborador.IRepositorioColaborador import IRepositorioColaborador
-from Conversores.ColaboradorDicionarioConversor import ColaboradorDicionarioConversor
 from firebase_admin import firestore
-from constants import *
+from Utils.constants import *
+
+from model.Usuario.Colaborador.Colaborador import Colaborador
+from model.Interesse.Interesse import Interesse
+from model.Usuario.Colaborador.IRepositorioColaborador import IRepositorioColaborador
+from model.Conversores.ColaboradorDicionarioConversor import ColaboradorDicionarioConversor
+
 
 class RepositorioColaboradorFirestore(IRepositorioColaborador):
 

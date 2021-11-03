@@ -1,4 +1,4 @@
-from Interesse.Interesse import Interesse
+from model.Interesse.Interesse import Interesse
 
 class Habilidade:
 

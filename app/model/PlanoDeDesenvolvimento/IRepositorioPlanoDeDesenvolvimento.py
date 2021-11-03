@@ -1,6 +1,7 @@
 import abc
 from typing import Optional
-from PlanoDeDesenvolvimento import PlanoDeDesenvolvimento
+
+from model.PlanoDeDesenvolvimento.PlanoDeDesenvolvimento import PlanoDeDesenvolvimento
 
 class IRepositorioPlanoDeDesenvolvimento(metaclass=abc.ABCMeta):
 
