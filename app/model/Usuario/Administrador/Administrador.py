@@ -1,4 +1,4 @@
-from model.Usuario import Usuario
+from model.usuario.Usuario import Usuario
 
 
 class Administrador(Usuario):

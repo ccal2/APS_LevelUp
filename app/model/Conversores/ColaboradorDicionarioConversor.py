@@ -1,10 +1,10 @@
-from model.Usuario.Colaborador.Colaborador import Colaborador
-from model.Interesse.Interesse import Interesse
+from model.usuario.colaborador.Colaborador import Colaborador
+from model.interesse.Interesse import Interesse
 
 
 class ColaboradorDicionarioConversor:
     @staticmethod
-    def colaboradorParaDicionario(colaborador: Colaborador):
+    def colaborador_para_dicionario(colaborador: Colaborador):
         ids_interesses = list(map(lambda x: x.titulo, colaborador.interesses))
 
         dicionario = {
@@ -18,7 +18,7 @@ class ColaboradorDicionarioConversor:
         return dicionario
 
     @staticmethod
-    def dicionarioParaColaborador(dicionario) -> Colaborador:
+    def dicionario_para_colaborador(dicionario) -> Colaborador:
         interesses = list(map(lambda x: Interesse(titulo=x), dicionario.get("interesses")))
 
         colaborador = Colaborador(

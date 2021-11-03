@@ -1,9 +1,9 @@
 from typing import Optional
 from firebase_admin import firestore
-from Utils.constants import *
+from utils.constants import *
 
-from model.Interesse.Interesse import Interesse
-from model.Interesse.IRepositorioInteresse import IRepositorioInteresse
+from model.interesse.Interesse import Interesse
+from model.interesse.IRepositorioInteresse import IRepositorioInteresse
 
 
 class RepositorioInteresseFirestore(IRepositorioInteresse):
@@ -17,7 +17,7 @@ class RepositorioInteresseFirestore(IRepositorioInteresse):
 
         self.colecao.document(interesse.titulo).set(interesseDict)
 
-    def consultarInteresse(self, titulo: str) -> Optional[Interesse]:
+    def consultar_interesse(self, titulo: str) -> Optional[Interesse]:
         documento = self.colecao.document(titulo)
         interesse = documento.get()
 

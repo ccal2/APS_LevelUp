@@ -1,14 +1,11 @@
 import abc
 from typing import Optional
 from firebase_admin import firestore
-from Utils.constants import *
+from utils.constants import *
 
-from model.Usuario.Colaborador.Colaborador import Colaborador
-from model.Interesse.Interesse import Interesse
-from model.Usuario.Colaborador.IRepositorioColaborador import IRepositorioColaborador
-from model.Conversores.ColaboradorDicionarioConversor import (
-    ColaboradorDicionarioConversor,
-)
+from model.usuario.colaborador.Colaborador import Colaborador
+from model.usuario.colaborador.IRepositorioColaborador import IRepositorioColaborador
+from model.conversores.ColaboradorDicionarioConversor import ColaboradorDicionarioConversor
 
 
 class RepositorioColaboradorFirestore(IRepositorioColaborador):
@@ -16,20 +13,20 @@ class RepositorioColaboradorFirestore(IRepositorioColaborador):
         self.colecao = firestore.client().collection(DB_COLABORADORES)
 
     def inserir(self, colaborador: Colaborador):
-        dicionarioColaborador = ColaboradorDicionarioConversor.colaboradorParaDicionario(colaborador)
+        dicionario_colaborador = ColaboradorDicionarioConversor.colaborador_para_dicionario(colaborador)
 
         # Inserir objeto no banco
-        self.colecao.document(colaborador.email).set(dicionarioColaborador)
+        self.colecao.document(colaborador.email).set(dicionario_colaborador)
 
-    def consultarColaborador(self, email: str) -> Optional[Colaborador]:
+    def consultar_colaborador(self, email: str) -> Optional[Colaborador]:
         # Pegar objeto do banco de dados
         documento = self.colecao.document(email)
-        objetoColaborador = documento.get()
+        dicionario_colaborador = documento.get()
 
-        if not objetoColaborador.exists:
+        if not dicionario_colaborador.exists:
             return None
 
-        colaborador = ColaboradorDicionarioConversor.dicionarioParaColaborador(objetoColaborador.to_dict())
+        colaborador = ColaboradorDicionarioConversor.dicionario_para_colaborador(dicionario_colaborador.to_dict())
 
         return colaborador
 

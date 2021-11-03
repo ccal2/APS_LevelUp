@@ -1,7 +1,7 @@
 import abc
 from typing import Optional
 
-from model.Interesse.Interesse import Interesse
+from model.interesse.Interesse import Interesse
 
 
 class IRepositorioInteresse(metaclass=abc.ABCMeta):
@@ -10,7 +10,7 @@ class IRepositorioInteresse(metaclass=abc.ABCMeta):
         return
 
     @abc.abstractmethod
-    def consultarInteresse(self, id: str) -> Optional[Interesse]:
+    def consultar_interesse(self, id: str) -> Optional[Interesse]:
         return
 
     @abc.abstractmethod

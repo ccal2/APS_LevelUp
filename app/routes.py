@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template
 
-from model.Usuario.Colaborador.RepositorioColaboradorFirestore import RepositorioColaboradorFirestore
+from model.usuario.colaborador.RepositorioColaboradorFirestore import RepositorioColaboradorFirestore
 
 
 @app.route("/consultar", methods=["GET"])

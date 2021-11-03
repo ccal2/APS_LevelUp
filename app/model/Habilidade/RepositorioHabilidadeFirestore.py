@@ -2,8 +2,8 @@ from typing import Optional
 from firebase_admin import firestore
 from Utils.constants import *
 
-from model.Habilidade.Habilidade import Habilidade
-from model.Habilidade.IRepositorioHabilidade import IRepositorioHabilidade
+from model.habilidade.Habilidade import Habilidade
+from model.habilidade.IRepositorioHabilidade import IRepositorioHabilidade
 
 
 class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
@@ -20,7 +20,7 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
 
         self.colecao.document(habilidade.nome).set(habilidadeDict)
 
-    def consultarHabilidade(self, nome: str) -> Optional[Habilidade]:
+    def consultar_habilidade(self, nome: str) -> Optional[Habilidade]:
         documento = self.colecao.document(nome)
         habilidade = documento.get()
 

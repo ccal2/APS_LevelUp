@@ -1,7 +1,7 @@
 import abc
 from typing import Optional
 
-from model.Usuario.Colaborador.Colaborador import Colaborador
+from model.usuario.colaborador.Colaborador import Colaborador
 
 
 class IRepositorioColaborador(metaclass=abc.ABCMeta):
@@ -10,7 +10,7 @@ class IRepositorioColaborador(metaclass=abc.ABCMeta):
         return
 
     @abc.abstractmethod
-    def consultarColaborador(self, email: str) -> Optional[Colaborador]:
+    def consultar_colaborador(self, email: str) -> Optional[Colaborador]:
         return
 
     @abc.abstractmethod
