@@ -5,7 +5,7 @@ from utils.constants import *
 
 from model.usuario.colaborador.Colaborador import Colaborador
 from model.usuario.colaborador.IRepositorioColaborador import IRepositorioColaborador
-from model.conversores.ColaboradorDicionarioConversor import ColaboradorDicionarioConversor
+from model.usuario.colaborador.ColaboradorDicionarioConversor import ColaboradorDicionarioConversor
 
 
 class RepositorioColaboradorFirestore(IRepositorioColaborador):
