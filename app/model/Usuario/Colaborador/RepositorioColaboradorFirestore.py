@@ -6,11 +6,12 @@ from Utils.constants import *
 from model.Usuario.Colaborador.Colaborador import Colaborador
 from model.Interesse.Interesse import Interesse
 from model.Usuario.Colaborador.IRepositorioColaborador import IRepositorioColaborador
-from model.Conversores.ColaboradorDicionarioConversor import ColaboradorDicionarioConversor
+from model.Conversores.ColaboradorDicionarioConversor import (
+    ColaboradorDicionarioConversor,
+)
 
 
 class RepositorioColaboradorFirestore(IRepositorioColaborador):
-
     def __init__(self):
         self.colecao = firestore.client().collection(DB_COLABORADORES)
 

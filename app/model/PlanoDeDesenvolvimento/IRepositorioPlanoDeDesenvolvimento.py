@@ -3,8 +3,8 @@ from typing import Optional
 
 from model.PlanoDeDesenvolvimento.PlanoDeDesenvolvimento import PlanoDeDesenvolvimento
 
-class IRepositorioPlanoDeDesenvolvimento(metaclass=abc.ABCMeta):
 
+class IRepositorioPlanoDeDesenvolvimento(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def inserir(self, PlanoDeDesenvolvimento: PlanoDeDesenvolvimento):
         return

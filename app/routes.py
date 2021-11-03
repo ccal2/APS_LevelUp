@@ -6,19 +6,20 @@ from model.Usuario.Colaborador.Colaborador import Colaborador
 from model.Interesse.Interesse import Interesse
 
 carolCIN = Colaborador(
-    email = "ccal2@cin.ufpe.br",
-    nome = "Carolina Lopes",
-    area = "D&O",
-    cargo = "Engenheiro de Software I",
-    interesses = [Interesse(titulo="Swift")]
+    email="ccal2@cin.ufpe.br",
+    nome="Carolina Lopes",
+    area="D&O",
+    cargo="Engenheiro de Software I",
+    interesses=[Interesse(titulo="Swift")],
 )
 
 carolCESAR = Colaborador(
-    email = "ccal@cesar.org.br",
-    nome = "Carolina Lopes",
-    area = "D&O",
-    cargo = "Engenheiro de Software I"
+    email="ccal@cesar.org.br",
+    nome="Carolina Lopes",
+    area="D&O",
+    cargo="Engenheiro de Software I",
 )
+
 
 @app.route("/inserir", methods=["GET"])
 def inserir():
@@ -38,7 +39,8 @@ def consultar():
 
     colaborador = repo.consultarColaborador(email=carolCIN.email)
 
-    return render_template('consultaColaborador.html', colaborador=colaborador)
+    return render_template("consultaColaborador.html", colaborador=colaborador)
+
 
 @app.route("/atualizar", methods=["GET"])
 def atualizar():
@@ -50,6 +52,7 @@ def atualizar():
     colaborador = repo.consultarColaborador(email=carolCIN.email)
 
     return colaborador.__str__()
+
 
 @app.route("/remover", methods=["GET"])
 def remover():

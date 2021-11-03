@@ -3,8 +3,8 @@ from typing import Optional
 
 from model.Usuario.Colaborador.Colaborador import Colaborador
 
-class IRepositorioColaborador(metaclass=abc.ABCMeta):
 
+class IRepositorioColaborador(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def inserir(self, colaborador: Colaborador):
         return

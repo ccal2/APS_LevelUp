@@ -7,7 +7,6 @@ from IRepositorioPlanoDeDesenvolvimento import IRepositorioPlanoDeDesenvolviment
 
 
 class RepositorioPlanoDeDesenvolvimentoFirestore(IRepositorioPlanoDeDesenvolvimento):
-
     def __init__(self):
         self.colecao = firestore.client().collection(DB_PLANOS_DE_DESENVOLVIMENTO)
 
@@ -32,7 +31,7 @@ class RepositorioPlanoDeDesenvolvimentoFirestore(IRepositorioPlanoDeDesenvolvime
 
         return PlanoDeDesenvolvimento(
             habilidades=planoDeDesenvolvimentoDict.get("habilidades"),
-            colaborador=planoDeDesenvolvimento.get("colaborador")
+            colaborador=planoDeDesenvolvimento.get("colaborador"),
         )
 
     def atualizar(self, planoDeDesenvolvimento: PlanoDeDesenvolvimento):

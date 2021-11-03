@@ -3,8 +3,8 @@ from typing import Optional
 
 from model.Interesse.Interesse import Interesse
 
-class IRepositorioInteresse(metaclass=abc.ABCMeta):
 
+class IRepositorioInteresse(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def inserir(self, Interesse: Interesse):
         return

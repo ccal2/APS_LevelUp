@@ -1,7 +1,7 @@
 import re
 
-class Email:
 
+class Email:
     def __init__(self, email: str):
         self.email = email
 

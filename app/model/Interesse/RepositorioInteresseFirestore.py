@@ -7,7 +7,6 @@ from model.Interesse.IRepositorioInteresse import IRepositorioInteresse
 
 
 class RepositorioInteresseFirestore(IRepositorioInteresse):
-
     def __init__(self):
         self.colecao = firestore.client().collection(DB_INTERESSES)
 
@@ -28,9 +27,7 @@ class RepositorioInteresseFirestore(IRepositorioInteresse):
         # Converter dicionário em instância de Interesse
         interesseDict = interesse.to_dict()
 
-        return Interesse(
-            titulo = interesseDict.get('titulo')
-        )
+        return Interesse(titulo=interesseDict.get("titulo"))
 
     def atualizar(self, interesse: Interesse):
         return

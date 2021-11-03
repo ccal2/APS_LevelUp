@@ -7,7 +7,6 @@ from model.Habilidade.IRepositorioHabilidade import IRepositorioHabilidade
 
 
 class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
-
     def __init__(self):
         self.colecao = firestore.client().collection(DB_HABILIDADES)
 
@@ -16,7 +15,7 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
             "nome": habilidade.nome,
             "descricao": habilidade.descricao,
             "nivel": habilidade.nivel,
-            "interesses": habilidade.interesses
+            "interesses": habilidade.interesses,
         }
 
         self.colecao.document(habilidade.nome).set(habilidadeDict)
@@ -28,7 +27,7 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
         if not habilidade.exists:
             return None
 
-        #...
+        # ...
 
     def atualizar(self, habilidade: Habilidade):
         return
