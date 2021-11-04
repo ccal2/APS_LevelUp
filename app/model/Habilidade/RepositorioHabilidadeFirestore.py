@@ -50,4 +50,4 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
         self.inserir(habilidade)
 
     def remover(self, habilidade: Habilidade):
-         self.colecao.document(habilidade.nome).delete()
+        self.colecao.document(habilidade.nome).delete()
