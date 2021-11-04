@@ -1,4 +1,4 @@
-from model.habilidade.Habilidade import Habilidade
+from model.habilidade.habilidade import Habilidade
 from model.interesse.Interesse import Interesse
 
 

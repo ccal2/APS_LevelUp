@@ -2,8 +2,8 @@ from typing import Optional
 from firebase_admin import firestore
 from utils.constants import *
 
-from model.plano_de_desenvolvimento.PlanoDeDesenvolvimento import PlanoDeDesenvolvimento
-from model.plano_de_desenvolvimento.IRepositorioPlanoDeDesenvolvimento import IRepositorioPlanoDeDesenvolvimento
+from model.plano_de_desenvolvimento.plano_de_desenvolvimento import PlanoDeDesenvolvimento
+from model.plano_de_desenvolvimento.i_repositorio_plano_de_desenvolvimento import IRepositorioPlanoDeDesenvolvimento
 
 
 class RepositorioPlanoDeDesenvolvimentoFirestore(IRepositorioPlanoDeDesenvolvimento):

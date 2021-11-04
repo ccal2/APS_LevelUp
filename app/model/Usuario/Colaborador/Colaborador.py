@@ -1,4 +1,4 @@
-from model.usuario.Usuario import Usuario
+from model.usuario.usuario import Usuario
 from model.interesse.Interesse import Interesse
 
 

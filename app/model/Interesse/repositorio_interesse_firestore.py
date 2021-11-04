@@ -4,8 +4,8 @@ from utils.constants import *
 from utils.helpers import *
 
 from model.interesse.Interesse import Interesse
-from model.interesse.IRepositorioInteresse import IRepositorioInteresse
-from model.interesse.InteresseDicionarioConversor import InteresseDicionarioConversor
+from model.interesse.i_repositorio_interesse import IRepositorioInteresse
+from model.interesse.interesse_dicionario_conversor import InteresseDicionarioConversor
 
 
 class RepositorioInteresseFirestore(IRepositorioInteresse):
