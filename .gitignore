@@ -4,5 +4,7 @@
 # Cahce
 **/__pycache__/*
 
+/venv
+
 # Sensitive information
 **/serviceAccountKey.json
