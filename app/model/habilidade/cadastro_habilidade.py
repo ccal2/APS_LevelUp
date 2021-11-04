@@ -1,5 +1,5 @@
-from model.habilidade.habilidade import Habilidade
-from model.interesse.interesse import Interesse
+from model.habilidade.habilidades import Habilidade
+from model.interesse.interesses import Interesse
 from model.habilidade.i_repositorio_habilidade import IRepositorioHabilidade
 from model.habilidade.repositorio_habilidade_firestore import RepositorioHabilidadeFirestore
 

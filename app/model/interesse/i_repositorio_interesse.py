@@ -1,7 +1,7 @@
 import abc
 from typing import Optional
 
-from model.interesse.interesse import Interesse
+from model.interesse.interesses import Interesse
 
 
 class IRepositorioInteresse(metaclass=abc.ABCMeta):
