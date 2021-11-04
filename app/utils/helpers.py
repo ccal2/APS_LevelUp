@@ -1,5 +1,5 @@
 # algumas queries só suportam até 10 valores de comparação, então fazemos a query repetidamente até pegar todos os valores desejados
-def executar_query_extentida(referencia_colecao, ids: list[str], parametro_query: str, operacao_query: str) -> list:
+def executar_query_extentida(referencia_colecao, ids: "list[str]", parametro_query: str, operacao_query: str) -> list:
     QUANTIDADE_MAXIMA = 10
     documentos = []
     quantidade_IDs = len(ids)

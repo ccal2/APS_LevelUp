@@ -31,7 +31,7 @@ class RepositorioInteresseFirestore(IRepositorioInteresse):
 
         return Interesse(titulo=interesseDict.get("titulo"))
 
-    def consultar_interesses(self, ids: str) -> list[Interesse]:
+    def consultar_interesses(self, ids: str) -> "list[Interesse]":
         documentos = executar_query_extentida(
             referencia_colecao=self.colecao,
             ids=ids,

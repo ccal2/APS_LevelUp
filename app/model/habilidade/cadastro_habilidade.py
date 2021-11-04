@@ -8,5 +8,5 @@ class CadastroHabilidade:
     def __init__(self, repositorio_habilidade: IRepositorioHabilidade = RepositorioHabilidadeFirestore()):
         self.repositorio_habilidade = repositorio_habilidade
 
-    def consultar_habilidades(self, interesses: list[Interesse]) -> list[Habilidade]:
+    def consultar_habilidades(self, interesses: "list[Interesse]") -> "list[Habilidade]":
         return self.repositorio_habilidade.consultar_habilidades(interesses)

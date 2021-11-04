@@ -3,6 +3,6 @@ from model.habilidade.habilidades import Habilidade
 
 
 class PlanoDeDesenvolvimento:
-    def __init__(self, colaborador: Colaborador, habilidades: list[Habilidade] = []):
+    def __init__(self, colaborador: Colaborador, habilidades: "list[Habilidade]" = []):
         self.colaborador = colaborador
         self.habilidades = habilidades
