@@ -1,6 +1,6 @@
 from typing import Optional
 from firebase_admin import firestore
-from utils.constants import *
+from utils.constantes import *
 from utils.helpers import *
 
 from model.interesse.interesses import Interesse

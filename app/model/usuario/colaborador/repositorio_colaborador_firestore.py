@@ -1,7 +1,7 @@
 import abc
 from typing import Optional
 from firebase_admin import firestore
-from utils.constants import *
+from utils.constantes import *
 
 from model.usuario.colaborador.colaborador import Colaborador
 from model.usuario.colaborador.i_repositorio_colaborador import IRepositorioColaborador

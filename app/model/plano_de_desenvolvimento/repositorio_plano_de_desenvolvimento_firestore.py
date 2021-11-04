@@ -1,6 +1,6 @@
 from typing import Optional
 from firebase_admin import firestore
-from utils.constants import *
+from utils.constantes import *
 
 from model.plano_de_desenvolvimento.plano_de_desenvolvimento import PlanoDeDesenvolvimento
 from model.plano_de_desenvolvimento.i_repositorio_plano_de_desenvolvimento import IRepositorioPlanoDeDesenvolvimento

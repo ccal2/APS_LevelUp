@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from model.usuario.usuario import Usuario 
+from model.usuario.usuario import Usuario
 from model.interesse.interesses import Interesse
 
 
