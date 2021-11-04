@@ -1,9 +1,11 @@
 from typing import Optional
 from firebase_admin import firestore
 from utils.constants import *
+from utils.helpers import *
 
 from model.interesse.Interesse import Interesse
 from model.interesse.IRepositorioInteresse import IRepositorioInteresse
+from model.interesse.InteresseDicionarioConversor import InteresseDicionarioConversor
 
 
 class RepositorioInteresseFirestore(IRepositorioInteresse):
@@ -28,6 +30,20 @@ class RepositorioInteresseFirestore(IRepositorioInteresse):
         interesseDict = interesse.to_dict()
 
         return Interesse(titulo=interesseDict.get("titulo"))
+
+    def consultar_interesses(self, ids: str) -> list[Interesse]:
+        documentos = executar_query_extentida(
+            referencia_colecao=self.colecao,
+            ids=ids,
+            parametro_query="titulo",
+            operacao_query="in",
+        )
+
+        interesses = list(
+            map(lambda x: InteresseDicionarioConversor.dicionario_para_interesse(x.to_dict()), documentos)
+        )
+
+        return interesses
 
     def atualizar(self, interesse: Interesse):
         return

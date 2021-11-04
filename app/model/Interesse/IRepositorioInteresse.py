@@ -10,7 +10,11 @@ class IRepositorioInteresse(metaclass=abc.ABCMeta):
         return
 
     @abc.abstractmethod
-    def consultar_interesse(self, id: str) -> Optional[Interesse]:
+    def consultar_interesse(self, titulo: str) -> Optional[Interesse]:
+        return
+
+    @abc.abstractmethod
+    def consultar_interesses(self, ids: list[str]) -> list[Interesse]:
         return
 
     @abc.abstractmethod
