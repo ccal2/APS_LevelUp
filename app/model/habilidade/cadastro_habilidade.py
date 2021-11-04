@@ -1,7 +1,7 @@
-from model.habilidade.Habilidade import Habilidade
-from model.interesse.Interesse import Interesse
-from model.habilidade.IRepositorioHabilidade import IRepositorioHabilidade
-from model.habilidade.RepositorioHabilidadeFirestore import RepositorioHabilidadeFirestore
+from model.habilidade.habilidades import Habilidade
+from model.interesse.interesses import Interesse
+from model.habilidade.i_repositorio_habilidade import IRepositorioHabilidade
+from model.habilidade.repositorio_habilidade_firestore import RepositorioHabilidadeFirestore
 
 
 class CadastroHabilidade:

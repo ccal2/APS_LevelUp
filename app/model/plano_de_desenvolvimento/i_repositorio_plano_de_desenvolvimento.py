@@ -1,7 +1,7 @@
 import abc
 from typing import Optional
 
-from model.plano_de_desenvolvimento.PlanoDeDesenvolvimento import PlanoDeDesenvolvimento
+from model.plano_de_desenvolvimento.plano_de_desenvolvimento import PlanoDeDesenvolvimento
 
 
 class IRepositorioPlanoDeDesenvolvimento(metaclass=abc.ABCMeta):

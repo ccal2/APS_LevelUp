@@ -12,3 +12,7 @@ A Level Up é uma plataforma que auxilia no desenvolvimento pessoal e profission
 ## Entregas
 
 * [Escopo do projeto](/Escopo.pdf)
+
+
+## Rodar Projeto
+```python3 app/main.py```

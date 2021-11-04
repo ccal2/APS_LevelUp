@@ -1,12 +1,12 @@
 from typing import Optional
 from firebase_admin import firestore
-from utils.constants import *
+from utils.constantes import *
 from utils.helpers import *
 
-from model.habilidade.Habilidade import Habilidade
-from model.interesse.Interesse import Interesse
-from model.habilidade.IRepositorioHabilidade import IRepositorioHabilidade
-from model.habilidade.HabilidadeDicionarioConversor import HabilidadeDicionarioConversor
+from model.habilidade.habilidades import Habilidade
+from model.interesse.interesses import Interesse
+from model.habilidade.i_repositorio_habilidade import IRepositorioHabilidade
+from model.habilidade.habilidade_dicionario_conversor import HabilidadeDicionarioConversor
 
 
 class RepositorioHabilidadeFirestore(IRepositorioHabilidade):

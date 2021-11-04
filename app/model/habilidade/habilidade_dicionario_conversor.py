@@ -1,5 +1,5 @@
-from model.habilidade.Habilidade import Habilidade
-from model.interesse.Interesse import Interesse
+from model.habilidade.habilidades import Habilidade
+from model.interesse.interesses import Interesse
 
 
 class HabilidadeDicionarioConversor:

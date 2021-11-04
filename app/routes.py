@@ -1,10 +1,11 @@
-from app import app
-from flask import render_template
+from flask import Blueprint, render_template
 
-from model.usuario.colaborador.RepositorioColaboradorFirestore import RepositorioColaboradorFirestore
+from model.usuario.colaborador.repositorio_colaborador_firestore import RepositorioColaboradorFirestore
+
+bp = Blueprint("routes", __name__)
 
 
-@app.route("/consultar", methods=["GET"])
+@bp.route("/consultar", methods=["GET"])
 def consultar():
     repo = RepositorioColaboradorFirestore()
 

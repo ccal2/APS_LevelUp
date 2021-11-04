@@ -1,5 +1,5 @@
-from model.usuario.colaborador.Colaborador import Colaborador
-from model.interesse.Interesse import Interesse
+from model.usuario.colaborador.colaborador import Colaborador
+from model.interesse.interesses import Interesse
 
 
 class ColaboradorDicionarioConversor:

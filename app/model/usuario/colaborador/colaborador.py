@@ -1,5 +1,7 @@
-from model.usuario.Usuario import Usuario
-from model.interesse.Interesse import Interesse
+from typing import Optional
+
+from model.usuario.usuario import Usuario
+from model.interesse.interesses import Interesse
 
 
 class Colaborador(Usuario):
