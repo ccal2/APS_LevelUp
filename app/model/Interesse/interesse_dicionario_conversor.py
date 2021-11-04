@@ -1,4 +1,4 @@
-from model.interesse.Interesse import Interesse
+from model.interesse.interesse import Interesse
 
 
 class InteresseDicionarioConversor:

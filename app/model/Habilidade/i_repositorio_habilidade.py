@@ -1,7 +1,7 @@
 import abc
 
-from model.habilidade.habilidade import Habilidade
-from model.interesse.Interesse import Interesse
+from model.habilidade.habilidades import Habilidade
+from model.interesse.interesses import Interesse
 
 
 class IRepositorioHabilidade(metaclass=abc.ABCMeta):

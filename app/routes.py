@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from model.usuario.colaborador.RepositorioColaboradorFirestore import RepositorioColaboradorFirestore
+from model.usuario.colaborador.repositorio_colaborador_firestore import RepositorioColaboradorFirestore
 
 bp = Blueprint("routes", __name__)
 

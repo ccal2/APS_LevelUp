@@ -4,7 +4,7 @@ from utils.constants import *
 from utils.helpers import *
 
 from model.habilidade.habilidade import Habilidade
-from model.interesse.Interesse import Interesse
+from model.interesse.interesses import Interesse
 from model.habilidade.i_repositorio_habilidade import IRepositorioHabilidade
 from model.habilidade.habilidade_dicionario_conversor import HabilidadeDicionarioConversor
 

@@ -1,5 +1,5 @@
 from model.usuario.colaborador.colaborador import Colaborador
-from model.habilidade.habilidade import Habilidade
+from model.habilidade.habilidades import Habilidade
 
 
 class PlanoDeDesenvolvimento:
