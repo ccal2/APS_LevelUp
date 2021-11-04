@@ -4,6 +4,7 @@ from model.usuario.colaborador.repositorio_colaborador_firestore import Reposito
 
 bp = Blueprint("routes", __name__)
 
+
 @bp.route("/consultar", methods=["GET"])
 def consultar():
     repo = RepositorioColaboradorFirestore()
