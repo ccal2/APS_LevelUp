@@ -19,14 +19,14 @@ class RepositorioColaboradorFirestore(IRepositorioColaborador):
         self.colecao.document(colaborador.email).set(dicionario_colaborador)
 
     def consultar_colaborador(self, email: str) -> Optional[Colaborador]:
-        # Pegar objeto do banco de dados
-        documento = self.colecao.document(email)
-        dicionario_colaborador = documento.get()
+        # Pegar documento do banco de dados
+        referencia = self.colecao.document(email)
+        documento = referencia.get()
 
-        if not dicionario_colaborador.exists:
+        if not documento.exists:
             return None
 
-        colaborador = ColaboradorDicionarioConversor.dicionario_para_colaborador(dicionario_colaborador.to_dict())
+        colaborador = ColaboradorDicionarioConversor.dicionario_para_colaborador(documento.to_dict())
 
         return colaborador
 
