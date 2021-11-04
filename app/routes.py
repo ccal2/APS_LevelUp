@@ -8,6 +8,6 @@ from model.usuario.colaborador.RepositorioColaboradorFirestore import Repositori
 def consultar():
     repo = RepositorioColaboradorFirestore()
 
-    colaborador = repo.consultarColaborador(email="ccal2@cin.ufpe.br")
+    colaborador = repo.consultar_colaborador(email="ccal2@cin.ufpe.br")
 
-    return render_template("consultaColaborador.html", colaborador=colaborador)
+    return render_template("consulta_colaborador.html", colaborador=colaborador)
