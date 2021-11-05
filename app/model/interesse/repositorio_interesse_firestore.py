@@ -13,23 +13,20 @@ class RepositorioInteresseFirestore(IRepositorioInteresse):
         self.colecao = firestore.client().collection(DB_INTERESSES)
 
     def inserir(self, interesse: Interesse):
-        interesseDict = {
-            "titulo": interesse.titulo,
-        }
+        dicionario_interesse = ConversorInteresseDicionario.interesse_para_dicionario(interesse)
 
-        self.colecao.document(interesse.titulo).set(interesseDict)
+        self.colecao.document(interesse.titulo).set(dicionario_interesse)
 
     def consultar_interesse(self, titulo: str) -> Optional[Interesse]:
-        documento = self.colecao.document(titulo)
-        interesse = documento.get()
+        referencia = self.colecao.document(titulo)
+        documento = referencia.get()
 
-        if not interesse.exists:
+        if not documento.exists:
             return None
 
-        # Converter dicionário em instância de Interesse
-        interesseDict = interesse.to_dict()
+        interesse = ConversorInteresseDicionario.dicionario_para_interesse(documento.to_dict())
 
-        return Interesse(titulo=interesseDict.get("titulo"))
+        return interesse
 
     def consultar_interesses(self, ids: str) -> "list[Interesse]":
         documentos = executar_query_extentida(
