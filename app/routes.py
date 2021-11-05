@@ -13,15 +13,21 @@ def consultar():
     return render_template("consulta_colaborador.html", colaborador=colaborador)
 
 @bp.route("/inicio/colaborador", methods=["GET"])
-def inicio_colaborador():
-    return render_template("inicio_colaborador.html")
+def tela_inicio_colaborador_controle():
+    return render_template("TelaInicioColaborador.html")
 
 @bp.route("/inicio/administrador", methods=["GET"])
-def inicio_administrador():
-    return render_template("inicio_administrador.html")
+def tela_inicio_administrador_controle():
+    return render_template("TelaInicioAdministrador.html")
 
 @bp.route("/recomendacoes/colaborador", methods=["GET"])
-def recomendacoes_colaborador():
+def tela_recomendacoes_do_sistema_controle():
     # precisa chamar o metodo que vai pegar o usuario logado e gerar as recomendacoes
     # depois passar pro template
-    return render_template("recomendacoes_sistema.html")
+    return render_template("TelaRecomendacoesDoSistema.html")
+
+@bp.route("/login", methods=["GET", "POST"])
+def tela_login_usuario_controle():
+    # precisa chamar o metodo que vai pegar o usuario logado e gerar as recomendacoes
+    # depois passar pro template
+    return render_template("TelaLoginUsuario.html")
