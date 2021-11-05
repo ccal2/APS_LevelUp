@@ -6,9 +6,9 @@ from utils.helpers import *
 from model.habilidade.habilidades import Habilidade
 from model.interesse.interesses import Interesse
 from model.habilidade.i_repositorio_habilidade import IRepositorioHabilidade
-from model.habilidade.habilidade_dicionario_conversor import HabilidadeDicionarioConversor
 from model.interesse.i_repositorio_interesse import IRepositorioInteresse
 from model.interesse.repositorio_interesse_firestore import RepositorioInteresseFirestore
+from model.conversores.conversor_habilidade_dicionario import ConversorHabilidadeDicionario
 
 
 class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
@@ -30,13 +30,13 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
         )
 
         habilidades = list(
-            map(lambda x: HabilidadeDicionarioConversor.dicionario_para_habilidade(x.to_dict()), documentos)
+            map(lambda x: ConversorHabilidadeDicionario.dicionario_para_habilidade(x.to_dict()), documentos)
         )
 
         return habilidades
 
     def inserir(self, habilidade: Habilidade):
-        dicionario_habilidade = HabilidadeDicionarioConversor.habilidade_para_dicionario(habilidade)
+        dicionario_habilidade = ConversorHabilidadeDicionario.habilidade_para_dicionario(habilidade)
 
         self.colecao.document(habilidade.nome).set(dicionario_habilidade)
 
@@ -49,7 +49,7 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
 
         dicionario = documento.to_dict()
         interesses = self.repositorio_interesse.consultar_interesses(ids=dicionario.get('interesses'))
-        habilidade = HabilidadeDicionarioConversor.dicionario_para_habilidade(dicionario, interesses)
+        habilidade = ConversorHabilidadeDicionario.dicionario_para_habilidade(dicionario, interesses)
 
         return habilidade
 

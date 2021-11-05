@@ -5,9 +5,9 @@ from utils.constantes import *
 
 from model.usuario.colaborador.colaborador import Colaborador
 from model.usuario.colaborador.i_repositorio_colaborador import IRepositorioColaborador
-from model.usuario.colaborador.colaborador_dicionario_conversor import ColaboradorDicionarioConversor
 from model.interesse.i_repositorio_interesse import IRepositorioInteresse
 from model.interesse.repositorio_interesse_firestore import RepositorioInteresseFirestore
+from model.conversores.colaborador.conversor_colaborador_dicionario import ConversorColaboradorDicionario
 
 
 class RepositorioColaboradorFirestore(IRepositorioColaborador):
@@ -19,7 +19,7 @@ class RepositorioColaboradorFirestore(IRepositorioColaborador):
             self.repositorio_interesse = repositorio_interesse
 
     def inserir(self, colaborador: Colaborador):
-        dicionario_colaborador = ColaboradorDicionarioConversor.colaborador_para_dicionario(colaborador)
+        dicionario_colaborador = ConversorColaboradorDicionario.colaborador_para_dicionario(colaborador)
 
         # Inserir objeto no banco
         self.colecao.document(colaborador.email).set(dicionario_colaborador)
@@ -34,7 +34,7 @@ class RepositorioColaboradorFirestore(IRepositorioColaborador):
 
         dicionario = documento.to_dict()
         interesses = self.repositorio_interesse.consultar_interesses(ids=dicionario.get('interesses'))
-        colaborador = ColaboradorDicionarioConversor.dicionario_para_colaborador(dicionario, interesses)
+        colaborador = ConversorColaboradorDicionario.dicionario_para_colaborador(dicionario, interesses)
 
         return colaborador
 

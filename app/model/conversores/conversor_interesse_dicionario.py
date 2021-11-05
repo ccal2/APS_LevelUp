@@ -1,7 +1,7 @@
 from model.interesse.interesses import Interesse
 
 
-class InteresseDicionarioConversor:
+class ConversorInteresseDicionario:
     @staticmethod
     def interesse_para_dicionario(interesse: Interesse):
         dicionario = {"titulo": interesse.titulo}

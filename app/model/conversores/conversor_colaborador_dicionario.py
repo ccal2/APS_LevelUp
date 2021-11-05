@@ -2,7 +2,7 @@ from model.usuario.colaborador.colaborador import Colaborador
 from model.interesse.interesses import Interesse
 
 
-class ColaboradorDicionarioConversor:
+class ConversorColaboradorDicionario:
     @staticmethod
     def colaborador_para_dicionario(colaborador: Colaborador):
         ids_interesses = list(map(lambda x: x.titulo, colaborador.interesses))

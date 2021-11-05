@@ -5,7 +5,7 @@ from utils.helpers import *
 
 from model.interesse.interesses import Interesse
 from model.interesse.i_repositorio_interesse import IRepositorioInteresse
-from model.interesse.interesse_dicionario_conversor import InteresseDicionarioConversor
+from model.conversores.conversor_interesse_dicionario import ConversorInteresseDicionario
 
 
 class RepositorioInteresseFirestore(IRepositorioInteresse):
@@ -40,7 +40,7 @@ class RepositorioInteresseFirestore(IRepositorioInteresse):
         )
 
         interesses = list(
-            map(lambda x: InteresseDicionarioConversor.dicionario_para_interesse(x.to_dict()), documentos)
+            map(lambda x: ConversorInteresseDicionario.dicionario_para_interesse(x.to_dict()), documentos)
         )
 
         return interesses
