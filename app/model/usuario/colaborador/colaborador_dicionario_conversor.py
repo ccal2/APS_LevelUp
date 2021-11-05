@@ -18,10 +18,7 @@ class ColaboradorDicionarioConversor:
         return dicionario
 
     @staticmethod
-    def dicionario_para_colaborador(dicionario) -> Colaborador:
-        # TODO: pegar Interesse do banco de dados
-        interesses = list(map(lambda x: Interesse(titulo=x), dicionario.get("interesses")))
-
+    def dicionario_para_colaborador(dicionario, interesses) -> Colaborador:
         colaborador = Colaborador(
             email=dicionario.get("email"),
             nome=dicionario.get("nome"),
