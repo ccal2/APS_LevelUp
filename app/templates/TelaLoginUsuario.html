@@ -27,18 +27,25 @@
   <body>
     <div class="page">
       <h1>Login</h1>
-      <form class="form">
+      <form class="form" action="" method="post">
         <input
           type="email"
+          name="email"
           required
           placeholder="Email"
+          value="{{ request.form.email }}"
         />
         <input
           type="password"
-          required
           placeholder="Senha"
+          name="password"
+          required
+          value="{{ request.form.password }}"
         />
         <input type="submit" value="Entrar"/>
+        {% if error %}
+          <p class="error"><strong>Error:</strong> {{ error }}
+        {% endif %}
       </form>
     </div>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>

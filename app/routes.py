@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, redirect, request
 
 from model.usuario.colaborador.repositorio_colaborador_firestore import RepositorioColaboradorFirestore
 
@@ -28,6 +28,9 @@ def tela_recomendacoes_do_sistema_controle():
 
 @bp.route("/login", methods=["GET", "POST"])
 def tela_login_usuario_controle():
-    # precisa chamar o metodo que vai pegar o usuario logado e gerar as recomendacoes
-    # depois passar pro template
-    return render_template("TelaLoginUsuario.html")
+    error = None
+    if request.method == 'POST':
+        # logar com firebase
+        # verificar o tipo de usuario pra saber pra qual pagina redirecionar
+        return redirect("inicio/colaborador")
+    return render_template("TelaLoginUsuario.html", error=error)
