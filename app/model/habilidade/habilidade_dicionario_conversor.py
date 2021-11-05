@@ -17,10 +17,7 @@ class HabilidadeDicionarioConversor:
         return dicionario
 
     @staticmethod
-    def dicionario_para_habilidade(dicionario) -> Habilidade:
-        # TODO: pegar Interesse do banco de dados
-        interesses = list(map(lambda x: Interesse(titulo=x), dicionario.get("interesses")))
-
+    def dicionario_para_habilidade(dicionario, interesses: "list[Interesse]") -> Habilidade:
         habilidade = Habilidade(
             nome=dicionario.get("nome"),
             descricao=dicionario.get("descricao"),
