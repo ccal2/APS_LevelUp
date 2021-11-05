@@ -48,7 +48,7 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
             return None
 
         dicionario = documento.to_dict()
-        interesses = self.repositorio_interesse.consultar_interesses(ids=dicionario.get('interesses'))
+        interesses = self.repositorio_interesse.consultar_interesses(ids=dicionario.get("interesses"))
         habilidade = ConversorHabilidadeDicionario.dicionario_para_habilidade(dicionario, interesses)
 
         return habilidade

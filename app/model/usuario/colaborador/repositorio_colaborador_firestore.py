@@ -33,7 +33,7 @@ class RepositorioColaboradorFirestore(IRepositorioColaborador):
             return None
 
         dicionario = documento.to_dict()
-        interesses = self.repositorio_interesse.consultar_interesses(ids=dicionario.get('interesses'))
+        interesses = self.repositorio_interesse.consultar_interesses(ids=dicionario.get("interesses"))
         colaborador = ConversorColaboradorDicionario.dicionario_para_colaborador(dicionario, interesses)
 
         return colaborador
