@@ -9,13 +9,21 @@
         max-width: 500px;
         padding-top: 100px;
       }
+      .habilidade {
+        border: 1px solid black;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h2>Aqui estão suas sugestões</h2>
       {% for habilidade in habilidades %}
-        <p>{{habilidade}}</p>
+        <div class="habilidade">
+          <p><b>{{habilidade.nome}}</b></p>
+          <p><i>{{habilidade.descricao}}</i></p>
+        </div>
       {% endfor %}
     </div>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
