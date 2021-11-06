@@ -1,4 +1,5 @@
 import abc
+from typing import Optional
 
 from model.habilidade.habilidades import Habilidade
 from model.interesse.interesses import Interesse
