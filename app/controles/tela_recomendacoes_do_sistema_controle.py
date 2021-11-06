@@ -9,3 +9,4 @@ class TelaRecomendacoesDoSistemaControle:
 
     def solicitar_recomendacoes(self, colaborador: Colaborador):
         resultado_recomendacoes = self.fachada.solicitar_recomendacoes(colaborador)
+        return resultado_recomendacoes
