@@ -2,7 +2,7 @@ from model.habilidade.habilidades import Habilidade
 from model.interesse.interesses import Interesse
 
 
-class HabilidadeDicionarioConversor:
+class ConversorHabilidadeDicionario:
     @staticmethod
     def habilidade_para_dicionario(habilidade: Habilidade):
         ids_interesses = list(map(lambda x: x.titulo, habilidade.interesses))
