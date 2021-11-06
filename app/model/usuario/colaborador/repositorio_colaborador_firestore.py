@@ -1,4 +1,3 @@
-import abc
 from typing import Optional
 from firebase_admin import firestore
 from utils.constantes import *
