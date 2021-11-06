@@ -8,3 +8,4 @@
 
 # Sensitive information
 **/serviceAccountKey.json
+**/.env
