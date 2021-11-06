@@ -1,28 +1,12 @@
 from flask import Blueprint, render_template, redirect, request
 
-from model.usuario.colaborador.colaborador import Colaborador
-from model.usuario.cadastro_usuario import CadastroUsuario
-from model.fachadas.fachada import Fachada
 from controles.tela_login_usuario_controle import TelaLoginUsuarioControle
 from controles.tela_recomendacoes_do_sistema_controle import TelaRecomendacoesDoSistemaControle
 
+# Usado para pegar o colaborador já logado (pré-condição do caso de uso implementado)
+from model.usuario.colaborador.repositorio_colaborador_firestore import RepositorioColaboradorFirestore
+
 bp = Blueprint("routes", __name__)
-
-
-@bp.route("/teste", methods=["GET"])
-def teste():
-    cadastro = CadastroUsuario()
-    colaborador = cadastro.consultar_usuario(email="ccal2@cin.ufpe.br")
-
-    fachada = Fachada()
-    recomendacoes = fachada.solicitar_recomendacoes(colaborador)
-
-    resultado = f"Recomendações para {colaborador.nome}: ["
-    for habilidade in recomendacoes:
-        resultado += f"(nome: {habilidade.nome}, descrição: {habilidade.descricao}, nível: {habilidade.nivel}), "
-    resultado += "]"
-
-    return resultado
 
 
 @bp.route("/inicio/colaborador", methods=["GET"])
@@ -35,10 +19,16 @@ def tela_inicio_administrador_controle():
     return render_template("TelaInicioAdministrador.html")
 
 
-@bp.route("/recomendacoes/colaborador", methods=["GET"])
-def tela_recomendacoes_do_sistema_controle():
+@bp.route("/recomendacoes/colaborador/<email_colaborador>", methods=["GET"])
+def tela_recomendacoes_do_sistema_controle(email_colaborador):
+    # Pegar colaborador já logado (pré-condição do caso de uso)
+    repositorio_colaborador = RepositorioColaboradorFirestore()
+    colaborador = repositorio_colaborador.consultar_colaborador(email_colaborador)
+    if colaborador is None:
+        return "Colaborador não encontrado"
+
     controle = TelaRecomendacoesDoSistemaControle()
-    habilidades = controle.solicitar_recomendacoes()
+    habilidades = controle.solicitar_recomendacoes(colaborador)
     return render_template("TelaRecomendacoesDoSistema.html", habilidades=habilidades)
 
 
