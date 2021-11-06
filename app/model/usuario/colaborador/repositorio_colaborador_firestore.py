@@ -7,7 +7,7 @@ from model.usuario.colaborador.colaborador import Colaborador
 from model.usuario.colaborador.i_repositorio_colaborador import IRepositorioColaborador
 from model.interesse.i_repositorio_interesse import IRepositorioInteresse
 from model.interesse.repositorio_interesse_firestore import RepositorioInteresseFirestore
-from model.conversores.colaborador.conversor_colaborador_dicionario import ConversorColaboradorDicionario
+from model.conversores.conversor_colaborador_dicionario import ConversorColaboradorDicionario
 
 
 class RepositorioColaboradorFirestore(IRepositorioColaborador):
