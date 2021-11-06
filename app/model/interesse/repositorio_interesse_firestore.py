@@ -43,7 +43,8 @@ class RepositorioInteresseFirestore(IRepositorioInteresse):
         return interesses
 
     def atualizar(self, interesse: Interesse):
-        return
+        # O método usado para inserir um objeto também pode ser usado para sobrescrevê-lo
+        self.inserir(interesse)
 
     def remover(self, interesse: Interesse):
-        return
+        self.colecao.document(interesse.titulo).delete()

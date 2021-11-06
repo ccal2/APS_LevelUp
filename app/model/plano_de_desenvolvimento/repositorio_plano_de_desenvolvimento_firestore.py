@@ -14,14 +14,14 @@ class RepositorioPlanoDeDesenvolvimentoFirestore(IRepositorioPlanoDeDesenvolvime
         nomes_habilidades = list(map(lambda x: x.titulo, plano_de_desenvolvimento.habilidades))
 
         plano_de_desenvolvimento_dict = {
-            "habilidades": nomes_habilidades,
             "colaborador": plano_de_desenvolvimento.colaborador.email,
+            "habilidades": nomes_habilidades,
         }
 
         self.colecao.document(plano_de_desenvolvimento.collaborador.email).set(plano_de_desenvolvimento_dict)
 
-    def consultar_plano_de_desenvolvimento(self, email_colaborador: str) -> Optional[PlanoDeDesenvolvimento]:
-        documento = self.colecao.document(email_colaborador)
+    def consultar_plano_de_desenvolvimento(self, id_colaborador: str) -> Optional[PlanoDeDesenvolvimento]:
+        documento = self.colecao.document(id_colaborador)
         plano_de_desenvolvimento = documento.get()
 
         if not plano_de_desenvolvimento.exists:
@@ -30,12 +30,13 @@ class RepositorioPlanoDeDesenvolvimentoFirestore(IRepositorioPlanoDeDesenvolvime
         plano_de_desenvolvimento_dict = plano_de_desenvolvimento.to_dict()
 
         return PlanoDeDesenvolvimento(
-            habilidades=plano_de_desenvolvimento_dict.get("habilidades"),
-            colaborador=plano_de_desenvolvimento.get("colaborador"),
+            id_colaborador=plano_de_desenvolvimento.get("colaborador"),
+            ids_habilidades=plano_de_desenvolvimento_dict.get("habilidades"),
         )
 
     def atualizar(self, plano_de_desenvolvimento: PlanoDeDesenvolvimento):
-        return
+        # O método usado para inserir um objeto também pode ser usado para sobrescrevê-lo
+        self.inserir(plano_de_desenvolvimento)
 
     def remover(self, plano_de_desenvolvimento: PlanoDeDesenvolvimento):
-        return
+        self.colecao.document(plano_de_desenvolvimento.id_colaborador).delete()
