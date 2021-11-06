@@ -4,6 +4,7 @@ from model.usuario.administrador.administrador import Administrador
 from model.usuario.colaborador.colaborador import Colaborador
 from model.usuario.cadastro_usuario import CadastroUsuario
 from model.fachadas.fachada import Fachada
+from controles.tela_login_usuario_controle import TelaLoginUsuarioControle
 
 bp = Blueprint("routes", __name__)
 
@@ -22,31 +23,6 @@ def teste():
             for interesse in usuario.interesses:
                 resultado += f"(titulo: {interesse.titulo}), "
             resultado += "])"
-
-    return resultado
-
-
-@bp.route("/testarLogin", methods=["GET"])
-def testarLogin():
-    fachada = Fachada()
-    resultado_login = fachada.realizar_login(email="ccal2@cin.ufpe.br", senha="senha123")
-
-    resultado = "Erro desconhecido"
-    # se não for None, pode ser um erro, um Administrador ou um Colaborador
-    if resultado_login is None:
-        resultado = "Usuário não encontrado"
-    elif type(resultado_login) is Administrador:
-        resultado = f"(email: {resultado_login.email.email}, nome: {resultado_login.nome})"
-    elif type(resultado_login) is Colaborador:
-        resultado = f"(email: {resultado_login.email.email}, nome: {resultado_login.nome}, area: {resultado_login.area}, cargo: {resultado_login.cargo}, interesse: ["
-        for interesse in resultado_login.interesses:
-            resultado += f"(titulo: {interesse.titulo}), "
-        resultado += "])"
-    elif resultado_login.get("status") == "error":
-        if resultado_login.get("message") == "INVALID_PASSWORD":
-            resultado = "Senha inválida"
-        elif resultado_login.get("message") == "EMAIL_NOT_FOUND":
-            resultado = "Email não cadastrado"
 
     return resultado
 
@@ -70,9 +46,12 @@ def tela_recomendacoes_do_sistema_controle():
 
 @bp.route("/login", methods=["GET", "POST"])
 def tela_login_usuario_controle():
+    controle = TelaLoginUsuarioControle()
     error = None
     if request.method == "POST":
-        # logar com firebase
-        # verificar o tipo de usuario pra saber pra qual pagina redirecionar
-        return redirect("inicio/colaborador")
-    return render_template("TelaLoginUsuario.html", error=error)
+        resultado = controle.realizar_login(request.form["email"], request.form["password"])
+        if "erro" in resultado.keys():
+            error = resultado["erro"]
+        if "redirecionar" in resultado.keys():
+            return redirect(resultado["redirecionar"])
+    return render_template(controle.tela, error=error)
