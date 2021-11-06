@@ -12,4 +12,5 @@ class CadastroHabilidade:
             self.repositorio_habilidade = repositorio_habilidade
 
     def consultar_habilidades(self, interesses: "list[Interesse]") -> "list[Habilidade]":
-        return self.repositorio_habilidade.consultar_habilidades(interesses)
+        ids_interesses = list(map(lambda x: x.titulo, interesses))
+        return self.repositorio_habilidade.consultar_habilidades(ids_interesses)
