@@ -1,4 +1,5 @@
 from model.usuario.colaborador.colaborador import Colaborador
+from model.habilidade.habilidades import Habilidade
 from model.interesse.cadastro_interesse import CadastroInteresse
 from model.habilidade.cadastro_habilidade import CadastroHabilidade
 
@@ -15,7 +16,7 @@ class ControladorRecomendacoes:
         else:
             self.cadastro_habilidade = cadastro_habilidade
 
-    def solicitar_recomendacoes(self, colaborador: Colaborador):
+    def solicitar_recomendacoes(self, colaborador: Colaborador) -> "list[Habilidade]":
         interesses = self.cadastro_interesse.consultar_interesses(colaborador)
         habilidades = self.cadastro_habilidade.consultar_habilidades(interesses)
 
