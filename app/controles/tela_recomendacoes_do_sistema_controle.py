@@ -1,5 +1,6 @@
 from model.fachadas.fachada import Fachada
 from model.usuario.colaborador.colaborador import Colaborador
+from model.habilidade.habilidades import Habilidade
 
 
 class TelaRecomendacoesDoSistemaControle:
@@ -7,6 +8,6 @@ class TelaRecomendacoesDoSistemaControle:
         self.fachada = Fachada()
         self.tela = "TelaRecomendacoesDoSistema.html"
 
-    def solicitar_recomendacoes(self, colaborador: Colaborador):
+    def solicitar_recomendacoes(self, colaborador: Colaborador) -> "list[Habilidade]":
         resultado_recomendacoes = self.fachada.solicitar_recomendacoes(colaborador)
         return resultado_recomendacoes
