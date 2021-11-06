@@ -1,21 +1,22 @@
-from typing import Optional
 from model.usuario.colaborador.colaborador import Colaborador
-
-from SubsistemaComunicacaoAPILoginGoogle.i_subsistema_comunicacao_API_login_google import (
-    ISubsistemaComunicacaoAPILoginGoogle,
-)
-from SubsistemaComunicacaoAPILoginGoogle.fachada_comunicacao_API_login_google import FachadaComunicacaoAPILoginGoogle
-from model.usuario.cadastro_usuario import CadastroUsuario
+from model.interesse.cadastro_interesse import CadastroInteresse
+from model.habilidade.cadastro_habilidade import CadastroHabilidade
 
 
 class ControladorRecomendacoes:
-    # def __init__(self):
+    def __init__(self, cadastro_interesse: CadastroInteresse = None, cadastro_habilidade: CadastroHabilidade = None):
+        if cadastro_interesse is None:
+            self.cadastro_interesse = CadastroInteresse()
+        else:
+            self.cadastro_interesse = cadastro_interesse
+
+        if cadastro_habilidade is None:
+            self.cadastro_habilidade = CadastroHabilidade()
+        else:
+            self.cadastro_habilidade = cadastro_habilidade
 
     def solicitar_recomendacoes(self, colaborador: Colaborador):
-      return [
-        {
-          "nome": "Habilidade 1",
-          "descricao": "Descricao 1",
-          "nivel": 21
-        }
-      ]
+        interesses = self.cadastro_interesse.consultar_interesses(colaborador)
+        habilidades = self.cadastro_habilidade.consultar_habilidades(interesses)
+
+        return habilidades
