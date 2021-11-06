@@ -1,4 +1,7 @@
+from utils.email import Email
+
+
 class Usuario:
-    def __init__(self, email: str, nome: str):
+    def __init__(self, email: Email, nome: str):
         self.email = email
         self.nome = nome
