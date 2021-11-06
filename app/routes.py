@@ -41,7 +41,12 @@ def tela_inicio_administrador_controle():
 def tela_recomendacoes_do_sistema_controle():
     # precisa chamar o metodo que vai pegar o usuario logado e gerar as recomendacoes
     # depois passar pro template
-    return render_template("TelaRecomendacoesDoSistema.html")
+    habilidades = [{
+        "nome": "Habilidade 1",
+        "descricao": "Descricao 1",
+        "nivel": 21
+    }]
+    return render_template("TelaRecomendacoesDoSistema.html", habilidades=habilidades)
 
 
 @bp.route("/login", methods=["GET", "POST"])
