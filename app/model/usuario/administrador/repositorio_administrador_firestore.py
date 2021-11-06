@@ -18,7 +18,6 @@ class RepositorioAdministradorFirestore(IRepositorioAdministrador):
         if not documento.exists:
             return None
 
-        dicionario = documento.to_dict()
-        administrador = ConversorAdministradorDicionario.dicionario_para_administrador(dicionario)
+        administrador = ConversorAdministradorDicionario.dicionario_para_administrador(documento.to_dict())
 
         return administrador

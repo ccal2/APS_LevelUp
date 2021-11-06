@@ -19,10 +19,8 @@
       <p>&emsp;area: {{colaborador.area}},</p>
       <p>&emsp;cargo: {{colaborador.cargo}},</p>
       <p>&emsp;interesses: &lbrack;</p>
-      {% for interesse in colaborador.interesses %}
-        <p>&emsp;&emsp;Interesse: &lbrace;</p>
-        <p>&emsp;&emsp;&emsp;título: {{interesse.titulo}},</p>
-        <p>&emsp;&emsp;&rbrace;,</p>
+      {% for interesse in colaborador.ids_interesses %}
+        <p>&emsp;&emsp;{{interesse}},</p>
       {% endfor %}
       <p>&emsp;&rbrack;</p>
       <p>&rbrace;</p>

@@ -19,9 +19,7 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
         else:
             self.repositorio_interesse = repositorio_interesse
 
-    def consultar_habilidades(self, interesses: "list[Interesse]") -> "list[Habilidade]":
-        ids_interesses = list(map(lambda x: x.titulo, interesses))
-
+    def consultar_habilidades(self, ids_interesses: "list[str]") -> "list[Habilidade]":
         documentos = executar_query_extentida(
             referencia_colecao=self.colecao,
             ids=ids_interesses,
@@ -37,7 +35,6 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
 
     def inserir(self, habilidade: Habilidade):
         dicionario_habilidade = ConversorHabilidadeDicionario.habilidade_para_dicionario(habilidade)
-
         self.colecao.document(habilidade.nome).set(dicionario_habilidade)
 
     def consultar_habilidade(self, nome: str) -> Optional[Habilidade]:
@@ -47,9 +44,7 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
         if not documento.exists:
             return None
 
-        dicionario = documento.to_dict()
-        interesses = self.repositorio_interesse.consultar_interesses(ids=dicionario.get("interesses"))
-        habilidade = ConversorHabilidadeDicionario.dicionario_para_habilidade(dicionario, interesses)
+        habilidade = ConversorHabilidadeDicionario.dicionario_para_habilidade(documento.to_dict())
 
         return habilidade
 
