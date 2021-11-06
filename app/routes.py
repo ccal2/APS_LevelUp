@@ -1,17 +1,28 @@
 from flask import Blueprint, render_template, redirect, request
 
-from model.usuario.colaborador.repositorio_colaborador_firestore import RepositorioColaboradorFirestore
+from model.usuario.administrador.administrador import Administrador
+from model.usuario.cadastro_usuario import CadastroUsuario
 
 bp = Blueprint("routes", __name__)
 
 
 @bp.route("/consultar", methods=["GET"])
 def consultar():
-    repo = RepositorioColaboradorFirestore()
+    cadastro = CadastroUsuario()
 
-    colaborador = repo.consultar_colaborador(email="ccal2@cin.ufpe.br")
+    usuario = cadastro.consultar_usuario(email="ccal2@cin.ufpe.br")
 
-    return render_template("consulta_colaborador.html", colaborador=colaborador)
+    resultado = ""
+    if usuario is not None:
+        if type(usuario) is Administrador:
+            resultado += f"(email: {usuario.email.email}, nome: {usuario.nome})"
+        else:
+            resultado += f"(email: {usuario.email.email}, nome: {usuario.nome}, area: {usuario.area}, cargo: {usuario.cargo}, interesse: ["
+            for interesse in usuario.interesses:
+                resultado += f"(titulo: {interesse.titulo}), "
+            resultado += "])"
+
+    return resultado
 
 
 @bp.route("/inicio/colaborador", methods=["GET"])
