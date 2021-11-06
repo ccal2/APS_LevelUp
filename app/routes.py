@@ -4,6 +4,7 @@ from model.usuario.colaborador.colaborador import Colaborador
 from model.usuario.cadastro_usuario import CadastroUsuario
 from model.fachadas.fachada import Fachada
 from controles.tela_login_usuario_controle import TelaLoginUsuarioControle
+from controles.tela_recomendacoes_do_sistema_controle import TelaRecomendacoesDoSistemaControle
 
 bp = Blueprint("routes", __name__)
 
@@ -36,9 +37,8 @@ def tela_inicio_administrador_controle():
 
 @bp.route("/recomendacoes/colaborador", methods=["GET"])
 def tela_recomendacoes_do_sistema_controle():
-    # precisa chamar o metodo que vai pegar o usuario logado e gerar as recomendacoes
-    # depois passar pro template
-    habilidades = [{"nome": "Habilidade 1", "descricao": "Descricao 1", "nivel": 21}]
+    controle = TelaRecomendacoesDoSistemaControle()
+    habilidades = controle.solicitar_recomendacoes()
     return render_template("TelaRecomendacoesDoSistema.html", habilidades=habilidades)
 
 
