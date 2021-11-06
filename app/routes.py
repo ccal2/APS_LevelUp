@@ -1,13 +1,14 @@
 from flask import Blueprint, render_template, redirect, request
 
 from model.usuario.administrador.administrador import Administrador
+from model.usuario.colaborador.colaborador import Colaborador
 from model.usuario.cadastro_usuario import CadastroUsuario
+from model.fachadas.fachada import Fachada
 
 bp = Blueprint("routes", __name__)
 
-
-@bp.route("/consultar", methods=["GET"])
-def consultar():
+@bp.route("/teste", methods=["GET"])
+def teste():
     cadastro = CadastroUsuario()
 
     usuario = cadastro.consultar_usuario(email="ccal2@cin.ufpe.br")
@@ -21,6 +22,31 @@ def consultar():
             for interesse in usuario.interesses:
                 resultado += f"(titulo: {interesse.titulo}), "
             resultado += "])"
+
+    return resultado
+
+
+@bp.route("/testarLogin", methods=["GET"])
+def testarLogin():
+    fachada = Fachada()
+    resultado_login = fachada.realizar_login(email="ccal2@cin.ufpe.br", senha="senha123")
+
+    resultado = "Erro desconhecido"
+    # se não for None, pode ser um erro, um Administrador ou um Colaborador
+    if resultado_login is None:
+        resultado = "Usuário não encontrado"
+    elif type(resultado_login) is Administrador:
+        resultado = f"(email: {resultado_login.email.email}, nome: {resultado_login.nome})"
+    elif type(resultado_login) is Colaborador:
+        resultado = f"(email: {resultado_login.email.email}, nome: {resultado_login.nome}, area: {resultado_login.area}, cargo: {resultado_login.cargo}, interesse: ["
+        for interesse in resultado_login.interesses:
+            resultado += f"(titulo: {interesse.titulo}), "
+        resultado += "])"
+    elif resultado_login.get("status") == "error":
+        if resultado_login.get("message") == "INVALID_PASSWORD":
+            resultado = "Senha inválida"
+        elif resultado_login.get("message") == "EMAIL_NOT_FOUND":
+            resultado = "Email não cadastrado"
 
     return resultado
 
