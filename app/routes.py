@@ -8,6 +8,7 @@ from controles.tela_login_usuario_controle import TelaLoginUsuarioControle
 
 bp = Blueprint("routes", __name__)
 
+
 @bp.route("/teste", methods=["GET"])
 def teste():
     cadastro = CadastroUsuario()

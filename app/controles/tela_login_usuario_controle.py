@@ -2,6 +2,7 @@ from model.fachadas.fachada import Fachada
 from model.usuario.administrador.administrador import Administrador
 from model.usuario.colaborador.colaborador import Colaborador
 
+
 class TelaLoginUsuarioControle:
     def __init__(self):
         self.fachada = Fachada()
