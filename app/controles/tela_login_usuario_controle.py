@@ -15,9 +15,9 @@ class TelaLoginUsuarioControle:
         if resultado_login is None:
             resposta["erro"] = "Usuário não encontrado"
         elif type(resultado_login) is Administrador:
-            resposta["redirecionar"] = "TelaInicioAdministrador.html"
+            resposta["redirecionar"] = "/inicio/administrador"
         elif type(resultado_login) is Colaborador:
-            resposta["redirecionar"] = "TelaInicioColaborador.html"
+            resposta["redirecionar"] = "/inicio/colaborador"
         elif resultado_login.get("status") == "error":
             if resultado_login.get("message") == "INVALID_PASSWORD":
                 resposta["erro"] = "Senha inválida"
