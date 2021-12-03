@@ -9,16 +9,6 @@ from model.usuario.colaborador.repositorio_colaborador_firestore import Reposito
 bp = Blueprint("routes", __name__)
 
 
-@bp.route("/inicio/colaborador", methods=["GET"])
-def tela_inicio_colaborador_controle():
-    return render_template("TelaInicioColaborador.html")
-
-
-@bp.route("/inicio/administrador", methods=["GET"])
-def tela_inicio_administrador_controle():
-    return render_template("TelaInicioAdministrador.html")
-
-
 @bp.route("/inicio", methods=["GET"])
 def tela_inicio_controle():
     return render_template("TelaInicio.html")
