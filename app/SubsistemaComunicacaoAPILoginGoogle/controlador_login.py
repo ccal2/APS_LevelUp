@@ -13,14 +13,5 @@ class ControladorLogin:
         resultado = requests.post(LINK_DO_REQUEST.format(CHAVE_API_LOGIN_GOOGLE), data=detalhes)
 
         resultado_json = resultado.json()
-        resultado_keys = resultado_json.keys()
 
-        # check for errors
-        CHAVE_ERRO = "error"
-        if CHAVE_ERRO in resultado_keys:
-            return {"status": "erro", "mensagem": resultado_json[CHAVE_ERRO]["message"]}
-
-        # success
-        CHAVE_IDTOKEN = "idToken"
-        if CHAVE_IDTOKEN in resultado_keys:
-            return {"status": "sucesso", CHAVE_IDTOKEN: resultado_json[CHAVE_IDTOKEN]}
+        return resultado_json
