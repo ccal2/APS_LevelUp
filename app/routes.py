@@ -19,6 +19,11 @@ def tela_inicio_administrador_controle():
     return render_template("TelaInicioAdministrador.html")
 
 
+@bp.route("/inicio", methods=["GET"])
+def tela_inicio_controle():
+    return render_template("TelaInicio.html")
+
+
 @bp.route("/recomendacoes/colaborador/<email_colaborador>", methods=["GET"])
 def tela_recomendacoes_do_sistema_controle(email_colaborador):
     # Pegar colaborador já logado (pré-condição do caso de uso)
@@ -38,8 +43,8 @@ def tela_login_usuario_controle():
     erro = None
     if request.method == "POST":
         resultado = controle.realizar_login(request.form["email"], request.form["senha"])
-        if "erro" in resultado.keys():
-            erro = resultado["erro"]
-        if "redirecionar" in resultado.keys():
-            return redirect(resultado["redirecionar"])
+        if resultado["status"] == "erro":
+            erro = resultado["mensagem"]
+        elif resultado["status"] == "sucesso":
+            return redirect("/inicio")
     return render_template(controle.tela, erro=erro)
