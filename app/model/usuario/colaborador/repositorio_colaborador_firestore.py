@@ -4,18 +4,12 @@ from utils.constantes import *
 
 from model.usuario.colaborador.colaborador import Colaborador
 from model.usuario.colaborador.i_repositorio_colaborador import IRepositorioColaborador
-from model.interesse.i_repositorio_interesse import IRepositorioInteresse
-from model.interesse.repositorio_interesse_firestore import RepositorioInteresseFirestore
 from model.conversores.conversor_colaborador_dicionario import ConversorColaboradorDicionario
 
 
 class RepositorioColaboradorFirestore(IRepositorioColaborador):
-    def __init__(self, repositorio_interesse: IRepositorioInteresse = None):
+    def __init__(self):
         self.colecao = firestore.client().collection(DB_COLABORADORES)
-        if repositorio_interesse is None:
-            self.repositorio_interesse = RepositorioInteresseFirestore()
-        else:
-            self.repositorio_interesse = repositorio_interesse
 
     def inserir(self, colaborador: Colaborador):
         dicionario_colaborador = ConversorColaboradorDicionario.colaborador_para_dicionario(colaborador)
