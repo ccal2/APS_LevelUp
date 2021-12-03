@@ -38,13 +38,13 @@
         <input
           type="password"
           placeholder="Senha"
-          name="password"
+          name="senha"
           required
-          value="{{ request.form.password }}"
+          value="{{ request.form.senha }}"
         />
         <input type="submit" value="Entrar"/>
-        {% if error %}
-          <p class="error"><strong>Error:</strong> {{ error }}
+        {% if erro %}
+          <p class="erro"><strong>Erro:</strong> {{ erro }}
         {% endif %}
       </form>
     </div>

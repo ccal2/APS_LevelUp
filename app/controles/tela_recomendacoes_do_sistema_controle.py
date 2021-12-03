@@ -1,4 +1,4 @@
-from model.fachadas.fachada import Fachada
+from model.controladores.fachada import Fachada
 from model.usuario.colaborador.colaborador import Colaborador
 from model.habilidade.habilidades import Habilidade
 

@@ -35,11 +35,11 @@ def tela_recomendacoes_do_sistema_controle(email_colaborador):
 @bp.route("/login", methods=["GET", "POST"])
 def tela_login_usuario_controle():
     controle = TelaLoginUsuarioControle()
-    error = None
+    erro = None
     if request.method == "POST":
-        resultado = controle.realizar_login(request.form["email"], request.form["password"])
+        resultado = controle.realizar_login(request.form["email"], request.form["senha"])
         if "erro" in resultado.keys():
-            error = resultado["erro"]
+            erro = resultado["erro"]
         if "redirecionar" in resultado.keys():
             return redirect(resultado["redirecionar"])
-    return render_template(controle.tela, error=error)
+    return render_template(controle.tela, erro=erro)
