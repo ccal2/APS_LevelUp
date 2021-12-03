@@ -1,5 +1,6 @@
+from flask import session
+
 from model.controladores.fachada import Fachada
-from model.usuario.colaborador.colaborador import Colaborador
 from model.habilidade.habilidades import Habilidade
 
 
@@ -8,6 +9,16 @@ class TelaRecomendacoesDoSistemaControle:
         self.fachada = Fachada()
         self.tela = "TelaRecomendacoesDoSistema.html"
 
-    def solicitar_recomendacoes(self, colaborador: Colaborador) -> "list[Habilidade]":
-        resultado_recomendacoes = self.fachada.solicitar_recomendacoes(colaborador)
+    def solicitar_recomendacoes(self) -> "list[Habilidade]":
+        email = session.get("email_usuario")
+
+        if not email:
+            return {
+                "status": "erro",
+                "mensagem": "Nenhum usuário logado"
+            }
+
+        # TODO: tratar possíveis erros de solicitar_recomendacoes
+        resultado_recomendacoes = self.fachada.solicitar_recomendacoes(email)
+
         return resultado_recomendacoes
