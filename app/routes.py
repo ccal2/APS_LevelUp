@@ -14,16 +14,10 @@ def tela_inicio_controle():
     return render_template("TelaInicio.html")
 
 
-@bp.route("/recomendacoes/colaborador/<email_colaborador>", methods=["GET"])
-def tela_recomendacoes_do_sistema_controle(email_colaborador):
-    # Pegar colaborador já logado (pré-condição do caso de uso)
-    repositorio_colaborador = RepositorioColaboradorFirestore()
-    colaborador = repositorio_colaborador.consultar_colaborador(email_colaborador)
-    if colaborador is None:
-        return "Colaborador não encontrado"
-
+@bp.route("/recomendacoes/", methods=["GET"])
+def tela_recomendacoes_do_sistema_controle():
     controle = TelaRecomendacoesDoSistemaControle()
-    habilidades = controle.solicitar_recomendacoes(colaborador)
+    habilidades = controle.solicitar_recomendacoes()
     return render_template("TelaRecomendacoesDoSistema.html", habilidades=habilidades)
 
 
