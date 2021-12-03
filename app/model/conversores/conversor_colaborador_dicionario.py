@@ -10,7 +10,7 @@ class ConversorColaboradorDicionario:
             "nome": colaborador.nome,
             "area": colaborador.area,
             "cargo": colaborador.cargo,
-            "interesses": colaborador.ids_interesses,
+            "interesses": colaborador.interesses,
         }
 
         return dicionario
@@ -22,7 +22,7 @@ class ConversorColaboradorDicionario:
             nome=dicionario.get("nome"),
             area=dicionario.get("area"),
             cargo=dicionario.get("cargo"),
-            ids_interesses=dicionario.get("interesses"),
+            interesses=dicionario.get("interesses"),
         )
 
         return colaborador

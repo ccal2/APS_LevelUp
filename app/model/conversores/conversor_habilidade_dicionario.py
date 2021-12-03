@@ -8,7 +8,7 @@ class ConversorHabilidadeDicionario:
             "nome": habilidade.nome,
             "descricao": habilidade.descricao,
             "nivel": habilidade.nivel,
-            "interesses": habilidade.ids_interesses,
+            "interesses": habilidade.interesses,
         }
 
         return dicionario
@@ -19,7 +19,7 @@ class ConversorHabilidadeDicionario:
             nome=dicionario.get("nome"),
             descricao=dicionario.get("descricao"),
             nivel=dicionario.get("nivel"),
-            ids_interesses=dicionario.get("interesses"),
+            interesses=dicionario.get("interesses"),
         )
 
         return habilidade

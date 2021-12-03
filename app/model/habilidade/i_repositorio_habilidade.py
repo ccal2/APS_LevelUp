@@ -2,12 +2,11 @@ import abc
 from typing import Optional
 
 from model.habilidade.habilidades import Habilidade
-from model.interesse.interesses import Interesse
 
 
 class IRepositorioHabilidade(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def consultar_habilidades(self, ids_interesses: "list[str]") -> "list[Habilidade]":
+    def consultar_habilidades(self, interesses: "list[str]") -> "list[Habilidade]":
         return
 
     @abc.abstractmethod
