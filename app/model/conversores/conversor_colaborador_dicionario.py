@@ -1,4 +1,4 @@
-from model.usuario.colaborador.colaborador import Colaborador
+from model.colaborador.colaborador import Colaborador
 from utils.email import Email
 
 

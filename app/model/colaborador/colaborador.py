@@ -1,10 +1,10 @@
-from model.usuario.usuario import Usuario
 from utils.email import Email
 
 
-class Colaborador(Usuario):
+class Colaborador:
     def __init__(self, email: Email, nome: str, area: str, cargo: str, interesses: "list[str]" = []):
-        super().__init__(email, nome)
+        self.email = email
+        self.nome = nome
         self.area = area
         self.cargo = cargo
         self.interesses = interesses

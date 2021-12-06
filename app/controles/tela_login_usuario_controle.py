@@ -1,8 +1,6 @@
 from flask import session
 
 from model.controladores.fachada import Fachada
-from model.usuario.administrador.administrador import Administrador
-from model.usuario.colaborador.colaborador import Colaborador
 
 
 class TelaLoginUsuarioControle:
