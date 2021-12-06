@@ -2,8 +2,8 @@ from typing import Optional
 from firebase_admin import firestore
 from utils.constantes import *
 
-from model.usuario.colaborador.colaborador import Colaborador
-from model.usuario.colaborador.i_repositorio_colaborador import IRepositorioColaborador
+from model.colaborador.colaborador import Colaborador
+from model.colaborador.i_repositorio_colaborador import IRepositorioColaborador
 from model.conversores.conversor_colaborador_dicionario import ConversorColaboradorDicionario
 
 
