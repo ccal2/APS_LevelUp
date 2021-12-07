@@ -1,4 +1,14 @@
+from enum import Enum
+
+
+class EstadoHabilidade(Enum):
+    ADICIONADO = 0
+    EM_PROGRESSO = 1
+    FINALIZADO = 2
+
+    def descricao(self):
+        return self.name.capitalize().replace("_", " ")
+
 class PlanoDeDesenvolvimento:
-    def __init__(self, id_colaborador: str, ids_habilidades: "list[str]" = []):
-        self.id_colaborador = id_colaborador
-        self.ids_habilidades = ids_habilidades
+    def __init__(self, estado_por_habilidade: dict[str, EstadoHabilidade] = {}):
+        self.estado_por_habilidade = estado_por_habilidade
