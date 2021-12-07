@@ -15,7 +15,7 @@ class RepositorioColaboradorFirestore(IRepositorioColaborador):
         dicionario_colaborador = ConversorColaboradorDicionario.colaborador_para_dicionario(colaborador)
 
         # Inserir objeto no banco
-        self.colecao.document(colaborador.email).set(dicionario_colaborador)
+        self.colecao.document(colaborador.email.email).set(dicionario_colaborador)
 
     def consultar_colaborador(self, email: str) -> Optional[Colaborador]:
         # Pegar documento do banco de dados
