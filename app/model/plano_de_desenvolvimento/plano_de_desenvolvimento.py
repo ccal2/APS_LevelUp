@@ -9,6 +9,7 @@ class EstadoHabilidade(Enum):
     def descricao(self):
         return self.name.capitalize().replace("_", " ")
 
+
 class PlanoDeDesenvolvimento:
     def __init__(self, estado_por_habilidade: dict[str, EstadoHabilidade] = {}):
         self.estado_por_habilidade = estado_por_habilidade
