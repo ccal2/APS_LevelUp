@@ -3,9 +3,6 @@ from flask import Blueprint, render_template, redirect, request
 from controles.tela_login_usuario_controle import TelaLoginUsuarioControle
 from controles.tela_recomendacoes_do_sistema_controle import TelaRecomendacoesDoSistemaControle
 
-# Usado para pegar o colaborador já logado (pré-condição do caso de uso implementado)
-from model.colaborador.repositorio_colaborador_firestore import RepositorioColaboradorFirestore
-
 bp = Blueprint("routes", __name__)
 
 
