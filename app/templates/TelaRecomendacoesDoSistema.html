@@ -18,13 +18,17 @@
   </head>
   <body>
     <div class="container">
-      <h2>Aqui estão suas sugestões</h2>
-      {% for habilidade in habilidades %}
-        <div class="habilidade">
-          <p><b>{{habilidade.nome}}</b></p>
-          <p><i>{{habilidade.descricao}}</i></p>
-        </div>
-      {% endfor %}
+      {% if erro %}
+        <p class="erro"><strong>Erro:</strong> {{ erro }}
+      {% else %}
+        <h2>Aqui estão suas sugestões</h2>
+        {% for habilidade in habilidades %}
+          <div class="habilidade">
+            <p><b>{{habilidade.nome}}</b></p>
+            <p><i>{{habilidade.descricao}}</i></p>
+          </div>
+        {% endfor %}
+      {% endif %}
     </div>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
