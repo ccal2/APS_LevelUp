@@ -6,6 +6,10 @@ from controles.tela_recomendacoes_do_sistema_controle import TelaRecomendacoesDo
 bp = Blueprint("routes", __name__)
 
 
+controleRecomendacoes = TelaRecomendacoesDoSistemaControle()
+controleLoginUsuario = TelaLoginUsuarioControle()
+
+
 @bp.route("/inicio", methods=["GET"])
 def tela_inicio_controle():
     return render_template("TelaInicio.html")
@@ -13,19 +17,17 @@ def tela_inicio_controle():
 
 @bp.route("/recomendacoes/", methods=["GET"])
 def tela_recomendacoes_do_sistema_controle():
-    controle = TelaRecomendacoesDoSistemaControle()
-    habilidades = controle.solicitar_recomendacoes()
+    habilidades = controleRecomendacoes.solicitar_recomendacoes()
     return render_template("TelaRecomendacoesDoSistema.html", habilidades=habilidades)
 
 
 @bp.route("/login", methods=["GET", "POST"])
 def tela_login_usuario_controle():
-    controle = TelaLoginUsuarioControle()
     erro = None
     if request.method == "POST":
-        resultado = controle.realizar_login(request.form["email"], request.form["senha"])
+        resultado = controleLoginUsuario.realizar_login(request.form["email"], request.form["senha"])
         if resultado["status"] == "erro":
             erro = resultado["mensagem"]
         elif resultado["status"] == "sucesso":
             return redirect("/inicio")
-    return render_template(controle.tela, erro=erro)
+    return render_template(controleLoginUsuario.tela, erro=erro)
