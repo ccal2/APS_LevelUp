@@ -2,9 +2,10 @@ from model.controladores.controlador_login_usuario import ControladorLoginUsuari
 from model.controladores.controlador_recomendacoes import ControladorRecomendacoes
 from model.adaptadores.adaptador_login_firebase import AdaptadorLoginFirebase
 from model.habilidade.habilidades import Habilidade
+from utils.singleton import SingletonMeta
 
 
-class Fachada:
+class Fachada(metaclass=SingletonMeta):
     def __init__(self):
         self.controlador_login_usuario = ControladorLoginUsuario(servico_login=AdaptadorLoginFirebase())
         self.controlador_recomendacoes = ControladorRecomendacoes()
