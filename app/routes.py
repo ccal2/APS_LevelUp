@@ -17,8 +17,14 @@ def tela_inicio_controle():
 
 @bp.route("/recomendacoes/", methods=["GET"])
 def tela_recomendacoes_do_sistema_controle():
-    habilidades = controleRecomendacoes.solicitar_recomendacoes()
-    return render_template("TelaRecomendacoesDoSistema.html", habilidades=habilidades)
+    erro = None
+    habilidades = None
+    resultado = controleRecomendacoes.solicitar_recomendacoes()
+    if resultado["status"] == "erro":
+        erro = resultado["mensagem"]
+    elif resultado["status"] == "sucesso":
+        habilidades = resultado["recomendacoes"]
+    return render_template("TelaRecomendacoesDoSistema.html", erro=erro, habilidades=habilidades)
 
 
 @bp.route("/login", methods=["GET", "POST"])

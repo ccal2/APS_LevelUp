@@ -15,7 +15,6 @@ class TelaRecomendacoesDoSistemaControle:
         if not email:
             return {"status": "erro", "mensagem": "Nenhum usuário logado"}
 
-        # TODO: tratar possíveis erros de solicitar_recomendacoes
         resultado_recomendacoes = self.fachada.solicitar_recomendacoes(email)
 
-        return resultado_recomendacoes
+        return {"status": "sucesso", "recomendacoes": resultado_recomendacoes}
