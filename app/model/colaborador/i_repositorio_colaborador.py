@@ -1,7 +1,7 @@
 import abc
 from typing import Optional
 
-from model.usuario.colaborador.colaborador import Colaborador
+from model.colaborador.colaborador import Colaborador
 
 
 class IRepositorioColaborador(metaclass=abc.ABCMeta):

@@ -1,5 +1,6 @@
-from model.usuario.colaborador.colaborador import Colaborador
+from model.colaborador.colaborador import Colaborador
 from utils.email import Email
+from model.conversores.conversor_plano_de_desenvolvimento_dicionario import ConversorPlanoDeDesenvolvimentoDicionario
 
 
 class ConversorColaboradorDicionario:
@@ -10,7 +11,10 @@ class ConversorColaboradorDicionario:
             "nome": colaborador.nome,
             "area": colaborador.area,
             "cargo": colaborador.cargo,
-            "interesses": colaborador.ids_interesses,
+            "interesses": colaborador.interesses,
+            "plano_de_desenvolvimento": ConversorPlanoDeDesenvolvimentoDicionario.plano_de_desenvolvimento_para_dicionario(
+                colaborador.plano_de_desenvolvimento
+            ),
         }
 
         return dicionario
@@ -22,7 +26,10 @@ class ConversorColaboradorDicionario:
             nome=dicionario.get("nome"),
             area=dicionario.get("area"),
             cargo=dicionario.get("cargo"),
-            ids_interesses=dicionario.get("interesses"),
+            interesses=dicionario.get("interesses"),
+            plano_de_desenvolvimento=ConversorPlanoDeDesenvolvimentoDicionario.dicionario_para_plano_de_desenvolvimento(
+                dicionario.get("plano_de_desenvolvimento")
+            ),
         )
 
         return colaborador

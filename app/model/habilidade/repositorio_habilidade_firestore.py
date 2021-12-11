@@ -4,25 +4,18 @@ from utils.constantes import *
 from utils.helpers import *
 
 from model.habilidade.habilidades import Habilidade
-from model.interesse.interesses import Interesse
 from model.habilidade.i_repositorio_habilidade import IRepositorioHabilidade
-from model.interesse.i_repositorio_interesse import IRepositorioInteresse
-from model.interesse.repositorio_interesse_firestore import RepositorioInteresseFirestore
 from model.conversores.conversor_habilidade_dicionario import ConversorHabilidadeDicionario
 
 
 class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
-    def __init__(self, repositorio_interesse: IRepositorioInteresse = None):
+    def __init__(self):
         self.colecao = firestore.client().collection(DB_HABILIDADES)
-        if repositorio_interesse is None:
-            self.repositorio_interesse = RepositorioInteresseFirestore()
-        else:
-            self.repositorio_interesse = repositorio_interesse
 
-    def consultar_habilidades(self, ids_interesses: "list[str]") -> "list[Habilidade]":
+    def consultar_habilidades(self, interesses: "list[str]") -> "list[Habilidade]":
         documentos = executar_query_extentida(
             referencia_colecao=self.colecao,
-            ids=ids_interesses,
+            ids=interesses,
             parametro_query="interesses",
             operacao_query="array_contains_any",
         )
