@@ -11,7 +11,7 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
     def __init__(self):
         self.colecao = firestore.client().collection(DB_HABILIDADES) # TODO: adicionar valor certo aqui
 
-    def consultar_habilidades(self, interesses: "list[str]") -> "list[Habilidade]":
+    def consultar_habilidades_por_interesses(self, interesses: "list[str]") -> "list[Habilidade]":
         documentos = executar_query_extentida(
             referencia_colecao=self.colecao,
             ids=interesses,

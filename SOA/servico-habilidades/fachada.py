@@ -5,7 +5,7 @@ from model.cadastro_habilidade import CadastroHabilidade
 
 class Fachada(metaclass=SingletonMeta):
     def __init__(self):
-        cadastro = CadastroHabilidade
+        self.cadastro = CadastroHabilidade
 
-    def consultar_habilidades(self, email: str, senha: str):
-        return self.controlador_login_usuario.realizar_login(email, senha)
+    def consultar_habilidades(self, interesses: "list[str]"):
+        return self.cadastro.consultar_habilidades_por_interesses(interesses)
