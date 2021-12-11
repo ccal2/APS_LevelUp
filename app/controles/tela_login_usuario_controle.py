@@ -1,4 +1,4 @@
-from model.fachadas.fachada import Fachada
+from model.controladores.fachada import Fachada
 from model.usuario.administrador.administrador import Administrador
 from model.usuario.colaborador.colaborador import Colaborador
 
@@ -15,13 +15,13 @@ class TelaLoginUsuarioControle:
         if resultado_login is None:
             resposta["erro"] = "Usuário não encontrado"
         elif type(resultado_login) is Administrador:
-            resposta["redirecionar"] = "TelaInicioAdministrador.html"
+            resposta["redirecionar"] = "/inicio/administrador"
         elif type(resultado_login) is Colaborador:
-            resposta["redirecionar"] = "TelaInicioColaborador.html"
-        elif resultado_login.get("status") == "error":
-            if resultado_login.get("message") == "INVALID_PASSWORD":
+            resposta["redirecionar"] = "/inicio/colaborador"
+        elif resultado_login.get("status") == "erro":
+            if resultado_login.get("mensagem") == "INVALID_PASSWORD":
                 resposta["erro"] = "Senha inválida"
-            elif resultado_login.get("message") == "EMAIL_NOT_FOUND":
+            elif resultado_login.get("mensagem") == "EMAIL_NOT_FOUND":
                 resposta["erro"] = "Email não cadastrado"
 
         return resposta

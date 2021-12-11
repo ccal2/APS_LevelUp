@@ -24,7 +24,7 @@ class ControladorLoginUsuario:
     def realizar_login(self, email: str, senha: str):  #  -> Optional[Usuario] | str
         resultado = self.fachada_login.login(email, senha)
 
-        if resultado.get("status") == "success":
+        if resultado.get("status") == "sucesso":
             return self.cadastro_usuario.consultar_usuario(email)
         else:
             return resultado

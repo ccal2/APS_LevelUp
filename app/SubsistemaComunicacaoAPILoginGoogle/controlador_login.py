@@ -10,17 +10,17 @@ class ControladorLogin:
         LINK_DO_REQUEST = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={}"
 
         detalhes = {"email": email, "password": senha, "returnSecureToken": True}
-        request = requests.post(LINK_DO_REQUEST.format(CHAVE_API_LOGIN_GOOGLE), data=detalhes)
+        resultado = requests.post(LINK_DO_REQUEST.format(CHAVE_API_LOGIN_GOOGLE), data=detalhes)
 
-        request_json = request.json()
-        request_keys = request_json.keys()
+        resultado_json = resultado.json()
+        resultado_keys = resultado_json.keys()
 
         # check for errors
         CHAVE_ERRO = "error"
-        if CHAVE_ERRO in request_keys:
-            return {"status": "error", "message": request_json[CHAVE_ERRO]["message"]}
+        if CHAVE_ERRO in resultado_keys:
+            return {"status": "erro", "mensagem": resultado_json[CHAVE_ERRO]["message"]}
 
         # success
         CHAVE_IDTOKEN = "idToken"
-        if CHAVE_IDTOKEN in request_keys:
-            return {"status": "success", CHAVE_IDTOKEN: request_json[CHAVE_IDTOKEN]}
+        if CHAVE_IDTOKEN in resultado_keys:
+            return {"status": "sucesso", CHAVE_IDTOKEN: resultado_json[CHAVE_IDTOKEN]}
