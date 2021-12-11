@@ -3,7 +3,7 @@ from firebase_admin import firestore
 from utils.helpers import executar_query_extentida
 
 from model.habilidade import Habilidade
-from model.habilidade import IRepositorioHabilidade
+from model.i_repositorio_habilidade import IRepositorioHabilidade
 from model.conversor_habilidade_dicionario import ConversorHabilidadeDicionario
 
 
