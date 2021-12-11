@@ -1,10 +1,26 @@
 version: "3.9"
 services:
-  habilidades:
-    build: ./servico-habilidades/
+  habilidade:
+    build: ./servico-habilidade/
     ports:
       - "5000:5000"
-    volumes:
-      - .:/code
-    environment:
-      FLASK_ENV: development
+    # volumes:
+    #   - .:/code
+    # environment:
+    #   FLASK_ENV: development
+  # plano_desenvolvimento:
+  #   build: ./servico-plano-desenvolvimento/
+  #   ports:
+  #     - "8761:8761"
+  #   volumes:
+  #     - .:/code
+  #   environment:
+  #     FLASK_ENV: development
+  # controle_acesso:
+  #   build: ./servico-controle-acesso/
+  #   ports:
+  #     - "5000:5000"
+  #   volumes:
+  #     - .:/code
+  #   environment:
+  #     FLASK_ENV: development

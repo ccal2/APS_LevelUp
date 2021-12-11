@@ -5,18 +5,10 @@ ENV FLASK_APP=main.py
 ENV FLASK_RUN_HOST=0.0.0.0
 RUN apk add --no-cache gcc musl-dev linux-headers
 COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 EXPOSE 5000
 COPY . .
 CMD ["python3 main.py"]
 
 
 # CMD ["flask", "run"]
-
-
-
-# Monitor
-# FROM openjdk:11-jre-slim
-# ARG JAR_FILE=target/*.jar
-# COPY ${JAR_FILE} app.jar
-# ENTRYPOINT ["java","-jar","/app.jar"]

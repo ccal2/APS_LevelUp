@@ -9,7 +9,7 @@ from model.conversor_habilidade_dicionario import ConversorHabilidadeDicionario
 
 class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
     def __init__(self):
-        self.colecao = firestore.client().collection(DB_HABILIDADES) # TODO: adicionar valor certo aqui
+        self.colecao = firestore.client().collection("habilidades")
 
     def consultar_habilidades_por_interesses(self, interesses: "list[str]") -> "list[Habilidade]":
         documentos = executar_query_extentida(
