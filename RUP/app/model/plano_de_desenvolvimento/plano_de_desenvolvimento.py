@@ -11,5 +11,5 @@ class EstadoHabilidade(Enum):
 
 
 class PlanoDeDesenvolvimento:
-    def __init__(self, estado_por_habilidade: dict[str, EstadoHabilidade] = {}):
+    def __init__(self, estado_por_habilidade: "dict[str, EstadoHabilidade]"):
         self.estado_por_habilidade = estado_por_habilidade
