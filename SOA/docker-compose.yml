@@ -8,22 +8,10 @@ services:
     build: ./servico-plano-desenvolvimento/
     ports:
       - "5002:5002"
-  gatewat:
+  gateway:
     build: ./gateway/
     ports:
       - "8000:8000"
-    # volumes:
-    #   - .:/code
-    # environment:
-    #   FLASK_ENV: development
-  # plano_desenvolvimento:
-  #   build: ./servico-plano-desenvolvimento/
-  #   ports:
-  #     - "8761:8761"
-  #   volumes:
-  #     - .:/code
-  #   environment:
-  #     FLASK_ENV: development
   # controle_acesso:
   #   build: ./servico-controle-acesso/
   #   ports:

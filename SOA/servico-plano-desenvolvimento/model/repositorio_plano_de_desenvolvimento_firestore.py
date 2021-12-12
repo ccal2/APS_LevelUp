@@ -16,7 +16,7 @@ class RepositorioPlanoDeDesenvolvimentoFirestore(IRepositorioPlanoDeDesenvolvime
 
         self.colecao.document(id_colaborador).set(plano_de_desenvolvimento)
 
-    def consultar_plano_de_desenvolvimento(self, id_colaborador: str) -> Optional[dict]:
+    def consultar_plano_de_desenvolvimento(self, id_colaborador: str) -> "Optional[dict]":
         referencia = self.colecao.document(id_colaborador)
         documento = referencia.get()
 

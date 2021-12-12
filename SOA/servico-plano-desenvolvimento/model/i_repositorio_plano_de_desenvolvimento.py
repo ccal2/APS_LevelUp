@@ -8,7 +8,7 @@ class IRepositorioPlanoDeDesenvolvimento(metaclass=abc.ABCMeta):
         return
 
     @abc.abstractmethod
-    def consultar_plano_de_desenvolvimento(self, id_colaborador: str) -> Optional[dict]:
+    def consultar_plano_de_desenvolvimento(self, id_colaborador: str) -> "Optional[dict]":
         return
 
     @abc.abstractmethod
