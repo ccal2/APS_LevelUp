@@ -18,4 +18,4 @@ app.register_blueprint(bp)
 port = int(os.environ.get("PORT", 5002))
 
 if __name__ == "__main__":
-    app.run(threaded=True)
+    app.run(threaded=True, port=port)
