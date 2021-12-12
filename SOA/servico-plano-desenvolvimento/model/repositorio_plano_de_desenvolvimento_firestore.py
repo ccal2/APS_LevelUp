@@ -12,7 +12,7 @@ class RepositorioPlanoDeDesenvolvimentoFirestore(IRepositorioPlanoDeDesenvolvime
 
     def inserir(self, plano_de_desenvolvimento: PlanoDeDesenvolvimento):
         dicionario_plano_de_desenvolvimento = ConversorPlanoDeDesenvolvimentoDicionario.plano_de_desenvolvimento_para_dicionario(plano_de_desenvolvimento)
-        self.colecao.document(plano_de_desenvolvimento.nome).set(dicionario_plano_de_desenvolvimento)
+        self.colecao.document(plano_de_desenvolvimento.id_colaborador).set(dicionario_plano_de_desenvolvimento)
 
     def consultar_plano_de_desenvolvimento(self, email: str) -> Optional[PlanoDeDesenvolvimento]:
         referencia = self.colecao.document(email)
