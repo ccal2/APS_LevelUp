@@ -3,7 +3,7 @@ import requests
 
 class APIServicoHabilidade:
     def __init__(self) -> None:
-        self.url_base = "http://localhost:8000/servico-habilidade"
+        self.url_base = "http://gateway:8000/servico-habilidade"
 
     def consultar_habilidades_por_ids(self, ids: "list[str]"):
         URL_DO_REQUEST = self.url_base + "/habilidades"

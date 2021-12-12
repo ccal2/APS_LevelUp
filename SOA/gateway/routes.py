@@ -5,15 +5,15 @@ bp = Blueprint("routes", __name__)
 
 MAP_SERVICOS = {
     "servico-controle-acesso": {
-        "domain": "localhost",
+        "domain": "controle_acesso",
         "port": "5000",
     },
     "servico-habilidade": {
-        "domain": "localhost",
+        "domain": "habilidade",
         "port": "5001",
     },
     "servico-plano-desenvolvimento": {
-        "domain": "localhost",
+        "domain": "plano_desenvolvimento",
         "port": "5002",
     },
 }

@@ -5,7 +5,7 @@ from utils.singleton import SingletonMeta
 
 class ComunicacaoBack(metaclass=SingletonMeta):
     def __init__(self) -> None:
-        self.url_gateway = "http://localhost:8000"
+        self.url_gateway = "http://gateway:8000"
         self.url_servico_controle_acesso = self.url_gateway + "/servico-controle-acesso"
         self.url_servico_plano_desenvolvimento = self.url_gateway + "/servico-plano-desenvolvimento"
         self.url_servico_habilidade = self.url_gateway + "/servico-habilidade"

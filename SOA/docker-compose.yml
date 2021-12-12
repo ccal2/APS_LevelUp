@@ -4,19 +4,32 @@ services:
     build: ./servico-controle-acesso/
     ports:
       - "5000:5000"
+    networks:
+      - my-network
   habilidade:
     build: ./servico-habilidade/
     ports:
       - "5001:5001"
+    networks:
+      - my-network
   plano_desenvolvimento:
     build: ./servico-plano-desenvolvimento/
     ports:
       - "5002:5002"
+    networks:
+      - my-network
   gateway:
     build: ./gateway/
     ports:
       - "8000:8000"
+    networks:
+      - my-network
   front:
     build: ./servico-front/
     ports:
       - "5003:5003"
+    networks:
+      - my-network
+networks:
+  my-network:
+      driver: bridge
