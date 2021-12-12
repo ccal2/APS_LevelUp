@@ -1,11 +1,10 @@
 from flask import Blueprint, request
 from fachada import Fachada
-import json
 
 bp = Blueprint("routes", __name__)
 
 fachada = Fachada()
 
-@bp.route("/listar-habilidades", methods=["GET"])
+@bp.route("/habilidades", methods=["POST"])
 def consultar_habiliades():
-    return json.dumps(fachada.consultar_habilidades())
+    return fachada.consultar_habilidades()

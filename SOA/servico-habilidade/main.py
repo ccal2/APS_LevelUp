@@ -3,11 +3,13 @@ import os
 
 from flask import Flask
 from firebase_admin import credentials, initialize_app
-from routes import bp
 
 # Initialize Firestore DB
 cred = credentials.Certificate("serviceAccountKey.json")
 default_app = initialize_app(cred)
+
+# Esse import precisa ser depois do 'initialize_app'
+from routes import bp
 
 # Initialize Flask app
 app = Flask(__name__)
