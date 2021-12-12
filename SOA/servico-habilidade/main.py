@@ -15,7 +15,7 @@ from routes import bp
 app = Flask(__name__)
 app.register_blueprint(bp)
 
-port = int(os.environ.get("PORT", 5000))
+port = int(os.environ.get("PORT", 5001))
 
 if __name__ == "__main__":
     app.run(threaded=True, host="0.0.0.0", port=port)

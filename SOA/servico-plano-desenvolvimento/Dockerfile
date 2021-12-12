@@ -6,7 +6,7 @@ ENV FLASK_RUN_HOST=0.0.0.0
 RUN apk add --no-cache gcc musl-dev linux-headers
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
-EXPOSE 5000
+EXPOSE 5002
 COPY . .
 CMD ["python3 main.py"]
 
