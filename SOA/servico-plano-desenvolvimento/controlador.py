@@ -15,7 +15,9 @@ class Controlador(metaclass=SingletonMeta):
 
         if plano is None:
             return (
-                f"Nenhum plano de desenvolvimento encontrado para o colaborador com id {id_colaborador}",
+                {
+                    "erro": f"Nenhum plano de desenvolvimento encontrado para o colaborador com id {id_colaborador}"
+                },
                 HTTPStatus.NOT_FOUND,
             )
 

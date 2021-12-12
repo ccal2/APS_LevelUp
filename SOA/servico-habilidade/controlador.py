@@ -13,7 +13,9 @@ class Controlador(metaclass=SingletonMeta):
         # Verificar se JSON foi enviado
         if not request.json:
             return (
-                f"Body inváildo. Deve ter um JSON com parâmetros para o filtro",
+                {
+                    "erro": "Body inváildo. Deve ter um JSON com parâmetros para o filtro."
+                },
                 HTTPStatus.BAD_REQUEST,
             )
 
@@ -24,7 +26,9 @@ class Controlador(metaclass=SingletonMeta):
             return self.consultar_habilidades_por_interesses()
         else:
             return (
-                f'Body inváildo. O JSON deve ter um campo "ids" ou um campo "interesses" com um array não-vazio.',
+                {
+                    "erro": "Body inváildo. O JSON deve ter um campo \"ids\" ou um campo \"interesses\" com um array não-vazio."
+                },
                 HTTPStatus.BAD_REQUEST,
             )
 
@@ -32,7 +36,9 @@ class Controlador(metaclass=SingletonMeta):
         ids = request.json.get("ids")
         if not ids or type(ids) is not list:
             return (
-                f'Body inváildo. O JSON deve ter um campo "ids" com um array não-vazio.',
+                {
+                    "erro": "Body inváildo. O JSON deve ter um campo \"ids\" com um array não-vazio."
+                },
                 HTTPStatus.BAD_REQUEST,
             )
 
@@ -40,7 +46,9 @@ class Controlador(metaclass=SingletonMeta):
 
         if len(habilidades) == 0:
             return (
-                f"Nenhuma habilidade encontrada para os ids {ids}",
+                {
+                    "erro": f"Nenhuma habilidade encontrada para os ids {ids}."
+                },
                 HTTPStatus.NOT_FOUND,
             )
 
@@ -50,7 +58,9 @@ class Controlador(metaclass=SingletonMeta):
         interesses = request.json.get("interesses")
         if not interesses or type(interesses) is not list:
             return (
-                f'Body inváildo. O JSON deve ter um campo "interesses" com um array não-vazio.',
+                {
+                    "erro": "Body inváildo. O JSON deve ter um campo \"interesses\" com um array não-vazio."
+                },
                 HTTPStatus.BAD_REQUEST,
             )
 
@@ -58,7 +68,9 @@ class Controlador(metaclass=SingletonMeta):
 
         if len(habilidades) == 0:
             return (
-                f"Nenhuma habilidade encontrada para os interesses {interesses}",
+                {
+                    "erro": f"Nenhuma habilidade encontrada para os interesses {interesses}."
+                },
                 HTTPStatus.NOT_FOUND,
             )
 
