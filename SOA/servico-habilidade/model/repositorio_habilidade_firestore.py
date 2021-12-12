@@ -43,9 +43,7 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
             operacao_query="array_contains_any",
         )
 
-        habilidades = list(
-            map(lambda x: x.to_dict(), documentos)
-        )
+        habilidades = list(map(lambda x: x.to_dict(), documentos))
 
         return habilidades
 

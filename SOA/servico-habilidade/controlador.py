@@ -13,7 +13,7 @@ class Controlador(metaclass=SingletonMeta):
         # Verificar se JSON foi enviado
         if not request.json:
             return (
-                f'Body inváildo. Deve ter um JSON com parâmetros para o filtro',
+                f"Body inváildo. Deve ter um JSON com parâmetros para o filtro",
                 HTTPStatus.BAD_REQUEST,
             )
 
@@ -35,18 +35,16 @@ class Controlador(metaclass=SingletonMeta):
                 f'Body inváildo. O JSON deve ter um campo "ids" com um array não-vazio.',
                 HTTPStatus.BAD_REQUEST,
             )
-        
+
         habilidades = self.cadastro.consultar_habilidades_por_ids(ids)
 
         if len(habilidades) == 0:
             return (
-                f'Nenhuma habilidade encontrada para os ids {ids}',
+                f"Nenhuma habilidade encontrada para os ids {ids}",
                 HTTPStatus.NOT_FOUND,
             )
 
-        return {
-            "habilidades": habilidades
-        }
+        return {"habilidades": habilidades}
 
     def consultar_habilidades_por_interesses(self):
         interesses = request.json.get("interesses")
@@ -55,15 +53,13 @@ class Controlador(metaclass=SingletonMeta):
                 f'Body inváildo. O JSON deve ter um campo "interesses" com um array não-vazio.',
                 HTTPStatus.BAD_REQUEST,
             )
-        
+
         habilidades = self.cadastro.consultar_habilidades_por_interesses(interesses)
 
         if len(habilidades) == 0:
             return (
-                f'Nenhuma habilidade encontrada para os interesses {interesses}',
+                f"Nenhuma habilidade encontrada para os interesses {interesses}",
                 HTTPStatus.NOT_FOUND,
             )
 
-        return {
-            "habilidades": habilidades
-        }
+        return {"habilidades": habilidades}

@@ -4,6 +4,7 @@ from http import HTTPStatus
 from model.cadastro_plano_de_desenvolvimento import CadastroPlanoDeDesenvolvimento
 from model.api_servico_habilidade import APIServicoHabilidade
 
+
 class Controlador(metaclass=SingletonMeta):
     def __init__(self):
         self.cadastro = CadastroPlanoDeDesenvolvimento()
@@ -14,15 +15,13 @@ class Controlador(metaclass=SingletonMeta):
 
         if plano is None:
             return (
-                f'Nenhum plano de desenvolvimento encontrado para o colaborador com id {id_colaborador}',
+                f"Nenhum plano de desenvolvimento encontrado para o colaborador com id {id_colaborador}",
                 HTTPStatus.NOT_FOUND,
             )
 
         mapeamento = plano.get("estado_por_habilidade")
         if mapeamento is None or len(mapeamento) == 0:
-            return {
-                "habilidades": []
-            }
+            return {"habilidades": []}
 
         ids_habilidades = list(mapeamento.keys())
         habilidades = self.servico_habilidade.consultar_habilidades_por_ids(ids_habilidades)
@@ -32,6 +31,4 @@ class Controlador(metaclass=SingletonMeta):
             if id_habilidade:
                 habilidade["estado"] = mapeamento.get(id_habilidade, 0)
 
-        return {
-            "habilidades": habilidades
-        }
+        return {"habilidades": habilidades}

@@ -1,6 +1,7 @@
 import abc
 from typing import Optional
 
+
 class IRepositorioHabilidade(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def inserir(self, habilidade: dict):

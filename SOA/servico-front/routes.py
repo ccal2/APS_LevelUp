@@ -9,10 +9,12 @@ bp = Blueprint("routes", __name__)
 # controleRecomendacoes = TelaRecomendacoesDoSistemaControle()
 # controleLoginUsuario = TelaLoginUsuarioControle()
 
+
 @bp.route("/", methods=["GET"])
 def tela_redirecionamento_inicial():
-    return redirect(url_for('routes.tela_login_usuario_controle'))
-    
+    return redirect(url_for("routes.tela_login_usuario_controle"))
+
+
 @bp.route("/login", methods=["GET", "POST"])
 def tela_login_usuario_controle():
     # erro = None
@@ -24,6 +26,7 @@ def tela_login_usuario_controle():
     #         return redirect("/inicio")
     # return render_template(controleLoginUsuario.tela, erro=erro)
     return render_template("TelaLoginUsuario.html")
+
 
 @bp.route("/inicio", methods=["GET"])
 def tela_inicio_controle():
