@@ -1,6 +1,5 @@
 from typing import Optional
 from firebase_admin import firestore
-from utils.helpers import executar_query_extentida
 
 from model.plano_de_desenvolvimento import PlanoDeDesenvolvimento
 from model.i_repositorio_plano_de_desenvolvimento import IRepositorioPlanoDeDesenvolvimento
@@ -11,24 +10,24 @@ class RepositorioPlanoDeDesenvolvimentoFirestore(IRepositorioPlanoDeDesenvolvime
     def __init__(self):
         self.colecao = firestore.client().collection("planos-de-desenvolvimento")
 
-    def inserir(self, habilidade: PlanoDeDesenvolvimento):
-        dicionario_habilidade = ConversorPlanoDeDesenvolvimentoDicionario.habilidade_para_dicionario(habilidade)
-        self.colecao.document(habilidade.nome).set(dicionario_habilidade)
+    def inserir(self, plano_de_desenvolvimento: PlanoDeDesenvolvimento):
+        dicionario_plano_de_desenvolvimento = ConversorPlanoDeDesenvolvimentoDicionario.plano_de_desenvolvimento_para_dicionario(plano_de_desenvolvimento)
+        self.colecao.document(plano_de_desenvolvimento.nome).set(dicionario_plano_de_desenvolvimento)
 
-    def contultar_plano_de_desenvolvimento(self, email: str) -> Optional[PlanoDeDesenvolvimento]:
+    def consultar_plano_de_desenvolvimento(self, email: str) -> Optional[PlanoDeDesenvolvimento]:
         referencia = self.colecao.document(email)
         documento = referencia.get()
 
         if not documento.exists:
             return None
 
-        habilidade = ConversorPlanoDeDesenvolvimentoDicionario.dicionario_para_habilidade(documento.to_dict())
+        plano_de_desenvolvimento = ConversorPlanoDeDesenvolvimentoDicionario.dicionario_para_plano_de_desenvolvimento(documento.to_dict())
 
-        return habilidade
+        return plano_de_desenvolvimento
 
     def atualizar(self, plano_de_desenvolvimento: PlanoDeDesenvolvimento):
         # O método usado para inserir um objeto também pode ser usado para sobrescrevê-lo
         self.inserir(plano_de_desenvolvimento)
 
     def remover(self, plano_de_desenvolvimento: PlanoDeDesenvolvimento):
-        self.colecao.document(plano_de_desenvolvimento.id).delete() # TODO: ver se ta certo
+        self.colecao.document(plano_de_desenvolvimento.id_colaborador).delete()

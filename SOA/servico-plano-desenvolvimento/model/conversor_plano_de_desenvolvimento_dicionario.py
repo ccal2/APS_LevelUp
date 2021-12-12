@@ -22,7 +22,7 @@ class ConversorPlanoDeDesenvolvimentoDicionario:
             mapeamento_estado_por_habilidade = dicionario.get("estado_por_habilidade")
             if mapeamento_estado_por_habilidade is not None:
                 for estado_por_habilidade in mapeamento_estado_por_habilidade:
-                    mapeamento[estado_por_habilidade] = EstadoHabilidade(dicionario[estado_por_habilidade])
+                    mapeamento[estado_por_habilidade] = EstadoHabilidade(mapeamento_estado_por_habilidade[estado_por_habilidade])
 
         id_colaborador = dicionario.get("colaborador")
         if id_colaborador is None:
