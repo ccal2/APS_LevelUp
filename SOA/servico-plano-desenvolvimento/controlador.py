@@ -2,7 +2,7 @@ from utils.singleton import SingletonMeta
 from http import HTTPStatus
 
 from model.cadastro_plano_de_desenvolvimento import CadastroPlanoDeDesenvolvimento
-from model.api_servico_habilidade import APIServicoHabilidade
+from comunicacao.api_servico_habilidade import APIServicoHabilidade
 
 
 class Controlador(metaclass=SingletonMeta):
