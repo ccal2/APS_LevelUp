@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, request, url_for
+from flask import Blueprint, render_template, redirect, url_for
 
 # from controles.tela_login_usuario_controle import TelaLoginUsuarioControle
 # from controles.tela_recomendacoes_do_sistema_controle import TelaRecomendacoesDoSistemaControle
