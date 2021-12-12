@@ -89,56 +89,41 @@
   <body>
     <main class="skills-page">
       <h1 class="title">Habilidades</h1>
-      <ul>
-        <li>
-          <div>
-            <h1>Typescript</h1>
-            <span>Adicionado</span>
-          </div>
-          <p class="description">TypeScript é uma linguagem de programação de código aberto desenvolvida pela Microsoft. É um superconjunto sintático estrito de JavaScript e adiciona tipagem estática opcional à linguagem.</p>
-          <p class="level">Nível: <span>Iniciante</span></p>
-        </li>
-        <li>
-          <div>
-            <h1>Inglês</h1>
-            <span>Finalizado</span>
-          </div>
-          <p class="description">Diariamente, convivemos com diversas palavras advindas desse idioma, elas estão em várias situações.  É devido a essa inserção da língua no cotidiano que o inglês se tornou esse atributo essencial.</p>
-          <p class="level">Nível: <span>Intemerdiário</span></p>
-        </li>
-        <li>
-          <div>
-            <h1>Django</h1>
-            <span>Progresso</span>
-          </div>
-          <p class="description">Django é um framework para aplicações web gratuito e de código aberto, escrito em Python. Um web framework é um conjunto de componentes que ajuda você a desenvolver sites de forma mais rápida e fácil.</p>
-          <p class="level">Nível: <span>Avançado</span></p>
-        </li>
-        <li>
-          <div>
-            <h1>Typescript</h1>
-            <span>Adicionado</span>
-          </div>
-          <p class="description">TypeScript é uma linguagem de programação de código aberto desenvolvida pela Microsoft. É um superconjunto sintático estrito de JavaScript e adiciona tipagem estática opcional à linguagem.</p>
-          <p class="level">Nível: <span>Iniciante</span></p>
-        </li>
-        <li>
-          <div>
-            <h1>Inglês</h1>
-            <span>Finalizado</span>
-          </div>
-          <p class="description">Diariamente, convivemos com diversas palavras advindas desse idioma, elas estão em várias situações.  É devido a essa inserção da língua no cotidiano que o inglês se tornou esse atributo essencial.</p>
-          <p class="level">Nível: <span>Intemerdiário</span></p>
-        </li>
-        <li>
-          <div>
-            <h1>Django</h1>
-            <span>Progresso</span>
-          </div>
-          <p class="description">Django é um framework para aplicações web gratuito e de código aberto, escrito em Python. Um web framework é um conjunto de componentes que ajuda você a desenvolver sites de forma mais rápida e fácil.</p>
-          <p class="level">Nível: <span>Avançado</span></p>
-        </li>
-      </ul>
+      {% if erro %}
+        <p class="erro"><strong>Erro:</strong> {{ erro }}
+      {% else %}
+        <ul>
+          {% for habilidade in habilidades %}
+          <li>
+            <div>
+              <h1>{{habilidade.nome}}</h1>
+              <span>
+                {% if habilidade.estado == 0 %}
+                  Andamento
+                {% elif habilidade.estado == 1 %}
+                  Em progresso
+                {% else %}
+                  Em andamento
+                {% endif %}
+              </span>
+            </div>
+            <p class="description">{{habilidade.descricao}}</p>
+            <p class="level">
+              Nível:
+              <span>
+                {% if habilidade.nivel == 0 %}
+                  Iniciante
+                {% elif habilidade.nivel == 1 %}
+                  Intermediário
+                {% else %}
+                  Avançado
+                {% endif %}
+              </span>
+            </p>
+          </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
     </main>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

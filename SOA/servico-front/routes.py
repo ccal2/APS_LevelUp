@@ -31,8 +31,10 @@ def tela_inicio_controle():
 
 @bp.route("/habilidades", methods=["GET"])
 def tela_habilidades():
-    controle_tela_habilidades.consultar_habilidades()
-    return render_template("TelaHabilidades.html")
+    resultado = controle_tela_habilidades.consultar_habilidades()
+    erro = resultado.get("erro")
+    habilidades =  resultado.get("habilidades")
+    return render_template("TelaHabilidades.html", erro=erro, habilidades=habilidades)
 
 
 # @bp.route("/recomendacoes/", methods=["GET"])
