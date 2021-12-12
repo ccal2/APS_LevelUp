@@ -5,7 +5,7 @@ class APIServicoHabilidade:
     def __init__(self) -> None:
         self.url_base = "http://192.168.0.29:5000"
 
-    def consultar_habilidades_por_ids(self, ids: list[str]):
+    def consultar_habilidades_por_ids(self, ids: "list[str]"):
         URL_DO_REQUEST = self.url_base + "/habilidades"
 
         body = {"ids": ids}

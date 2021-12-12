@@ -18,12 +18,14 @@ MAP_SERVICOS = {
     },
 }
 
-@bp.route("/<service:service>/<path:path>", methods=["POST", "GET"])
+@bp.route("/<string:service>/<string:path>", methods=["POST", "GET"])
 def mapeamento(service, path):
-    func = getattr(requests, request.args.get("method").toLower())
+    func = getattr(requests, request.method.lower())
 
-    domain = MAP_SERVICOS.get(service).get("url")
+    domain = MAP_SERVICOS.get(service).get("domain")
     port = MAP_SERVICOS.get(service).get("port")
-    url = f"{domain}:{port}/{path}"
+    url = f"http://{domain}:{port}/{path}"
 
-    return func(url, data=request.data)
+    resposta = func(url, json=request.json)
+
+    return resposta.json()
