@@ -1,21 +1,19 @@
 from flask import session
 
-from model.controladores.fachada import Fachada
-from model.habilidade.habilidades import Habilidade
+from comunicacao.comunicacao_back import ComunicacaoBack
+
 
 
 class TelaHabilidadesControle:
     def __init__(self):
-        self.fachada = Fachada()
         self.tela = "TelaHabilidades.html"
+        self.comunicacao_back = ComunicacaoBack()
 
-    def consultar_habilidades(self) -> "list[Habilidade]":
+    def consultar_habilidades(self) -> dict:
         # email = session.get("email_usuario")
         email = "ccal2@cin.ufpe.br"
 
         if not email:
-            return {"status": "erro", "mensagem": "Nenhum usuário logado"}
+            return {"erro": "Nenhum usuário logado"}
 
-        resultado_recomendacoes = self.fachada.solicitar_recomendacoes(email)
-
-        return {"status": "sucesso", "recomendacoes": resultado_recomendacoes}
+        return self.comunicacao_back.consultar_plano_de_desenvolvimento(email)

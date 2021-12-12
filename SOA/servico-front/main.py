@@ -2,8 +2,6 @@
 import os
 
 from flask import Flask
-
-# Esse import precisa ser depois do 'initialize_app'
 from routes import bp
 
 # Initialize Flask app

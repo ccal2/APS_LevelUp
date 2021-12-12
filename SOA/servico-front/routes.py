@@ -1,14 +1,10 @@
 from flask import Blueprint, render_template, redirect, url_for
 
-# from controles.tela_login_usuario_controle import TelaLoginUsuarioControle
-# from controles.tela_recomendacoes_do_sistema_controle import TelaRecomendacoesDoSistemaControle
+from controles.tela_habilidades import TelaHabilidadesControle
 
 bp = Blueprint("routes", __name__)
 
-
-# controleRecomendacoes = TelaRecomendacoesDoSistemaControle()
-# controleLoginUsuario = TelaLoginUsuarioControle()
-
+controle_tela_habilidades = TelaHabilidadesControle()
 
 @bp.route("/", methods=["GET"])
 def tela_redirecionamento_inicial():
@@ -35,6 +31,7 @@ def tela_inicio_controle():
 
 @bp.route("/habilidades", methods=["GET"])
 def tela_habilidades():
+    controle_tela_habilidades.consultar_habilidades()
     return render_template("TelaHabilidades.html")
 
 
