@@ -1,10 +1,10 @@
 from flask import Blueprint
-from fachada import Fachada
+from controlador import Controlador
 
 bp = Blueprint("routes", __name__)
 
-fachada = Fachada()
+controlador = Controlador()
 
 @bp.route("/plano-de-desenvolvimento/<id>", methods=["GET"])
 def obter_plano_de_desenvolvimento(id):
-    return fachada.obter_plano_de_desenvolvimento(id)
+    return controlador.obter_plano_de_desenvolvimento(id)

@@ -1,10 +1,10 @@
 from flask import Blueprint, request
-from fachada import Fachada
+from controlador import Controlador
 
 bp = Blueprint("routes", __name__)
 
-fachada = Fachada()
+controlador = Controlador()
 
 @bp.route("/habilidades", methods=["POST"])
 def consultar_habiliades():
-    return fachada.consultar_habilidades()
+    return controlador.consultar_habilidades()

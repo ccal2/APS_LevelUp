@@ -3,7 +3,7 @@ from utils.singleton import SingletonMeta
 from model.cadastro_plano_de_desenvolvimento import CadastroPlanoDeDesenvolvimento
 from model.conversor_plano_de_desenvolvimento_dicionario import ConversorPlanoDeDesenvolvimentoDicionario
 
-class Fachada(metaclass=SingletonMeta):
+class Controlador(metaclass=SingletonMeta):
     def __init__(self):
         self.cadastro = CadastroPlanoDeDesenvolvimento()
 

@@ -6,7 +6,7 @@ from model.cadastro_habilidade import CadastroHabilidade
 from model.conversor_habilidade_dicionario import ConversorHabilidadeDicionario
 
 
-class Fachada(metaclass=SingletonMeta):
+class Controlador(metaclass=SingletonMeta):
     def __init__(self):
         self.cadastro = CadastroHabilidade()
 
