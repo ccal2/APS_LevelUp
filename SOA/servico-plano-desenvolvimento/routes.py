@@ -7,4 +7,4 @@ controlador = Controlador()
 
 @bp.route("/plano-de-desenvolvimento/<id>", methods=["GET"])
 def obter_plano_de_desenvolvimento(id):
-    return controlador.obter_plano_de_desenvolvimento(id)
+    return controlador.consultar_plano_de_desenvolvimento(id)

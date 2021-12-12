@@ -1,26 +1,37 @@
 from utils.singleton import SingletonMeta
+from http import HTTPStatus
 
 from model.cadastro_plano_de_desenvolvimento import CadastroPlanoDeDesenvolvimento
-from model.conversor_plano_de_desenvolvimento_dicionario import ConversorPlanoDeDesenvolvimentoDicionario
+from model.api_servico_habilidade import APIServicoHabilidade
 
 class Controlador(metaclass=SingletonMeta):
     def __init__(self):
         self.cadastro = CadastroPlanoDeDesenvolvimento()
+        self.servico_habilidade = APIServicoHabilidade()
 
-    def obter_plano_de_desenvolvimento(self, id_colaborador: str):
+    def consultar_plano_de_desenvolvimento(self, id_colaborador: str):
         plano = self.cadastro.consultar_plano_de_desenvolvimento(id_colaborador)
 
-        # TODO:
-        # - Pegar habilidades a partir dos IDs de plano.estado_por_habilidade
-        # - Transformar mapeamento em JSON para o retorno da função
-        #   Formato do JSON: JSON de habilidade + um campo pro estado
-        #   {[
-        #       {
-        #           "nome": <>,
-        #           "descricao": <>,
-        #           "nivel": <>,
-        #           "interesses": [<>, <>, <>, ...],
-        #           "estado": <>
-        #       },
-        #   ]}
-        return ConversorPlanoDeDesenvolvimentoDicionario.plano_de_desenvolvimento_para_dicionario(plano)
+        if plano is None:
+            return (
+                f'Nenhum plano de desenvolvimento encontrado para o colaborador com id {id_colaborador}',
+                HTTPStatus.NOT_FOUND,
+            )
+
+        mapeamento = plano.get("estado_por_habilidade")
+        if mapeamento is None or len(mapeamento) == 0:
+            return {
+                "habilidades": []
+            }
+
+        ids_habilidades = list(mapeamento.keys())
+        habilidades = self.servico_habilidade.consultar_habilidades_por_ids(ids_habilidades)
+
+        for habilidade in habilidades:
+            id_habilidade = habilidade.get("nome")
+            if id_habilidade:
+                habilidade["estado"] = mapeamento.get(id_habilidade, 0)
+
+        return {
+            "habilidades": habilidades
+        }
