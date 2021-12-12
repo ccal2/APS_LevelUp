@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "873c10ec-ef56-4519-838a-6a0b0681a406",
+		"name": "Plano de Desenvolvimento",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sucesso",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_base_plano_de_desenvolvimento}}/plano-de-desenvolvimento/{{id_colaborador}}",
+					"host": [
+						"{{url_base_plano_de_desenvolvimento}}"
+					],
+					"path": [
+						"plano-de-desenvolvimento",
+						"{{id_colaborador}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "id_colaborador não encontrado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_base_plano_de_desenvolvimento}}/plano-de-desenvolvimento/a{{id_colaborador}}",
+					"host": [
+						"{{url_base_plano_de_desenvolvimento}}"
+					],
+					"path": [
+						"plano-de-desenvolvimento",
+						"a{{id_colaborador}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "plano sem mapeamento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_base_plano_de_desenvolvimento}}/plano-de-desenvolvimento/{{id_colaborador_2}}",
+					"host": [
+						"{{url_base_plano_de_desenvolvimento}}"
+					],
+					"path": [
+						"plano-de-desenvolvimento",
+						"{{id_colaborador_2}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

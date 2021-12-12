@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "6c6771f5-e4f8-46e0-8864-3c7b70664014",
+		"name": "Habilidade",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "consultar habilidades",
+			"item": [
+				{
+					"name": "consultar habilidades por ids",
+					"item": [
+						{
+							"name": "sucesso",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ids\": [\n        \"Design Pattern | Iniciante\",\n        \"Inglês | Avançado\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_habilidade}}/habilidades",
+									"host": [
+										"{{url_base_habilidade}}"
+									],
+									"path": [
+										"habilidades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "não encontrado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ids\": [\n        \"Voar | Iniciante\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_habilidade}}/habilidades",
+									"host": [
+										"{{url_base_habilidade}}"
+									],
+									"path": [
+										"habilidades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "body errado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ids\": \"Design Pattern | Iniciante\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_habilidade}}/habilidades",
+									"host": [
+										"{{url_base_habilidade}}"
+									],
+									"path": [
+										"habilidades"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "consultar habilidades por interesses",
+					"item": [
+						{
+							"name": "sucesso",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"interesses\": [\n        \"Back-End\",\n        \"Node\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_habilidade}}/habilidades",
+									"host": [
+										"{{url_base_habilidade}}"
+									],
+									"path": [
+										"habilidades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "não encontrado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"interesses\": [\n        \"Felicidade\",\n        \"Dinheiro\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_habilidade}}/habilidades",
+									"host": [
+										"{{url_base_habilidade}}"
+									],
+									"path": [
+										"habilidades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "body errado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"interesses\": \"Back-End\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url_base_habilidade}}/habilidades",
+									"host": [
+										"{{url_base_habilidade}}"
+									],
+									"path": [
+										"habilidades"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "body errado (sem parâmetros)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base_habilidade}}/habilidades",
+							"host": [
+								"{{url_base_habilidade}}"
+							],
+							"path": [
+								"habilidades"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
