@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint
 from controlador import Controlador
 
 bp = Blueprint("routes", __name__)
