@@ -14,8 +14,8 @@ class RepositorioPlanoDeDesenvolvimentoFirestore(IRepositorioPlanoDeDesenvolvime
         dicionario_plano_de_desenvolvimento = ConversorPlanoDeDesenvolvimentoDicionario.plano_de_desenvolvimento_para_dicionario(plano_de_desenvolvimento)
         self.colecao.document(plano_de_desenvolvimento.id_colaborador).set(dicionario_plano_de_desenvolvimento)
 
-    def consultar_plano_de_desenvolvimento(self, email: str) -> Optional[PlanoDeDesenvolvimento]:
-        referencia = self.colecao.document(email)
+    def consultar_plano_de_desenvolvimento(self, id_colaborador: str) -> Optional[PlanoDeDesenvolvimento]:
+        referencia = self.colecao.document(id_colaborador)
         documento = referencia.get()
 
         if not documento.exists:

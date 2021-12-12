@@ -10,5 +10,5 @@ class CadastroPlanoDeDesenvolvimento:
         else:
             self.repositorio_plano_de_desenvolvimento = repositorio_plano_de_desenvolvimento
 
-    def consultar_plano_de_desenvolvimento(self, email: str) -> PlanoDeDesenvolvimento:
-        return self.repositorio_plano_de_desenvolvimento.consultar_plano_de_desenvolvimento(email)
+    def consultar_plano_de_desenvolvimento(self, id_colaborador: str) -> PlanoDeDesenvolvimento:
+        return self.repositorio_plano_de_desenvolvimento.consultar_plano_de_desenvolvimento(id_colaborador)

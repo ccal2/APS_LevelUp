@@ -7,8 +7,8 @@ class Fachada(metaclass=SingletonMeta):
     def __init__(self):
         self.cadastro = CadastroPlanoDeDesenvolvimento()
 
-    def obter_plano_de_desenvolvimento(self, email: str):
-        plano = self.cadastro.consultar_plano_de_desenvolvimento(email)
+    def obter_plano_de_desenvolvimento(self, id_colaborador: str):
+        plano = self.cadastro.consultar_plano_de_desenvolvimento(id_colaborador)
 
         # TODO:
         # - Pegar habilidades a partir dos IDs de plano.estado_por_habilidade
