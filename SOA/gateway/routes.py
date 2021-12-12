@@ -32,4 +32,4 @@ def mapeamento(service, path, optional_parameter=None):
 
     resposta = func(url, json=request.json)
 
-    return resposta.json()
+    return (resposta.json(), resposta.status_code)
