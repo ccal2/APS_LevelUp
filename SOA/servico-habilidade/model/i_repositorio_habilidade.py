@@ -14,6 +14,10 @@ class IRepositorioHabilidade(metaclass=abc.ABCMeta):
         return
 
     @abc.abstractmethod
+    def consultar_habilidades_por_ids(self, ids: "list[str]") -> "list[Habilidade]":
+        return
+
+    @abc.abstractmethod
     def consultar_habilidades_por_interesses(self, interesses: "list[str]") -> "list[Habilidade]":
         return
 

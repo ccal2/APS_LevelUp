@@ -14,18 +14,51 @@ class Controlador(metaclass=SingletonMeta):
         # Verificar se JSON foi enviado
         if not request.json:
             return (
-                f'Body inváildo. Deve ter um JSON com array "interesses".',
+                f'Body inváildo. Deve ter um JSON com parâmetros para o filtro',
                 HTTPStatus.BAD_REQUEST,
             )
 
-        # Verificar se a lista de interesses foi enviada no body da requisição
+        # Verificar se a lista de ids ou de interesses foi enviada no body da requisição
+        if request.json.get("ids"):
+            return self.consultar_habilidades_por_ids()
+        elif request.json.get("interesses"):
+            return self.consultar_habilidades_por_interesses()
+        else:
+            return (
+                f'Body inváildo. O JSON deve ter um campo "ids" ou um campo "interesses" com um array não-vazio.',
+                HTTPStatus.BAD_REQUEST,
+            )
+
+    def consultar_habilidades_por_ids(self):
+        ids = request.json.get("ids")
+        if not ids or type(ids) is not list:
+            return (
+                f'Body inváildo. O JSON deve ter um campo "ids" com um array não-vazio.',
+                HTTPStatus.BAD_REQUEST,
+            )
+        
+        habilidades = self.cadastro.consultar_habilidades_por_ids(ids)
+
+        if len(habilidades) == 0:
+            return (
+                f'Nenhuma habilidade encontrada para os ids {ids}',
+                HTTPStatus.NOT_FOUND,
+            )
+
+        return {
+            "habilidades": list(
+                map(lambda x: ConversorHabilidadeDicionario.habilidade_para_dicionario(x), habilidades)
+            )
+        }
+
+    def consultar_habilidades_por_interesses(self):
         interesses = request.json.get("interesses")
         if not interesses or type(interesses) is not list:
             return (
                 f'Body inváildo. O JSON deve ter um campo "interesses" com um array não-vazio.',
                 HTTPStatus.BAD_REQUEST,
             )
-
+        
         habilidades = self.cadastro.consultar_habilidades_por_interesses(interesses)
 
         if len(habilidades) == 0:

@@ -26,6 +26,15 @@ class RepositorioHabilidadeFirestore(IRepositorioHabilidade):
 
         return habilidade
 
+    def consultar_habilidades_por_ids(self, ids: "list[str]") -> "list[Habilidade]":
+        habilidades = []
+        for id in ids:
+            habilidade = self.consultar_habilidade(id)
+            if habilidade:
+                habilidades.append(habilidade)
+
+        return habilidades
+
     def consultar_habilidades_por_interesses(self, interesses: "list[str]") -> "list[Habilidade]":
         documentos = executar_query_extentida(
             referencia_colecao=self.colecao,
