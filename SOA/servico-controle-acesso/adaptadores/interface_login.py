@@ -6,13 +6,10 @@ class InterfaceLogin(metaclass=abc.ABCMeta):
     """
     Retorno:
     - sucesso:
-        {
-            "status": "sucesso"
-        }
+        {}
     - erro:
         {
-            "status": "erro",
-            "mensagem": <mensagem de erro>
+            "erro": <mensagem de erro>
         }
         mensagens de erro:
             - "Email não cadastrado"

@@ -19,8 +19,8 @@ class AdaptadorLoginFirebase(InterfaceLogin):
         CHAVE_ERRO = "error"
         if CHAVE_ERRO in chaves_resposta:
             erro_servico = resposta[CHAVE_ERRO]["message"]
-            return {"status": "erro", "mensagem": mapaemento_erros[erro_servico]}
+            return {"erro": mapaemento_erros[erro_servico]}
         elif resposta.get("registered") == True:
-            return {"status": "sucesso"}
+            return {}
         else:
-            return {"status": "erro", "mensagem": "Algo deu errado"}
+            return {"erro": "Algo deu errado"}

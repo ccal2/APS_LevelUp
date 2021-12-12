@@ -16,9 +16,8 @@ def tela_login_usuario_controle():
     # erro = None
     # if request.method == "POST":
     #     resultado = controleLoginUsuario.realizar_login(request.form["email"], request.form["senha"])
-    #     if resultado["status"] == "erro":
-    #         erro = resultado["mensagem"]
-    #     elif resultado["status"] == "sucesso":
+    #     erro = resultado["erro"]    
+    #     if erro is None:
     #         return redirect("/inicio")
     # return render_template(controleLoginUsuario.tela, erro=erro)
     return render_template("TelaLoginUsuario.html")
@@ -39,11 +38,7 @@ def tela_habilidades():
 
 # @bp.route("/recomendacoes/", methods=["GET"])
 # def tela_recomendacoes_do_sistema_controle():
-#     erro = None
-#     habilidades = None
 #     resultado = controleRecomendacoes.solicitar_recomendacoes()
-#     if resultado["status"] == "erro":
-#         erro = resultado["mensagem"]
-#     elif resultado["status"] == "sucesso":
-#         habilidades = resultado["recomendacoes"]
+#     erro = resultado["erro"]
+#     habilidades = resultado["recomendacoes"]
 #     return render_template("TelaRecomendacoesDoSistema.html", erro=erro, habilidades=habilidades)
