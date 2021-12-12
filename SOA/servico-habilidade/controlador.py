@@ -3,7 +3,6 @@ from flask import request
 from http import HTTPStatus
 
 from model.cadastro_habilidade import CadastroHabilidade
-from model.conversor_habilidade_dicionario import ConversorHabilidadeDicionario
 
 
 class Controlador(metaclass=SingletonMeta):
@@ -46,9 +45,7 @@ class Controlador(metaclass=SingletonMeta):
             )
 
         return {
-            "habilidades": list(
-                map(lambda x: ConversorHabilidadeDicionario.habilidade_para_dicionario(x), habilidades)
-            )
+            "habilidades": habilidades
         }
 
     def consultar_habilidades_por_interesses(self):
@@ -68,7 +65,5 @@ class Controlador(metaclass=SingletonMeta):
             )
 
         return {
-            "habilidades": list(
-                map(lambda x: ConversorHabilidadeDicionario.habilidade_para_dicionario(x), habilidades)
-            )
+            "habilidades": habilidades
         }

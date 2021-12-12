@@ -1,30 +1,27 @@
 import abc
 from typing import Optional
 
-from model.habilidade import Habilidade
-
-
 class IRepositorioHabilidade(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def inserir(self, habilidade: Habilidade):
+    def inserir(self, habilidade: dict):
         return
 
     @abc.abstractmethod
-    def consultar_habilidade(self, id: str) -> Optional[Habilidade]:
+    def consultar_habilidade(self, id: str) -> Optional[dict]:
         return
 
     @abc.abstractmethod
-    def consultar_habilidades_por_ids(self, ids: "list[str]") -> "list[Habilidade]":
+    def consultar_habilidades_por_ids(self, ids: "list[str]") -> "list[dict]":
         return
 
     @abc.abstractmethod
-    def consultar_habilidades_por_interesses(self, interesses: "list[str]") -> "list[Habilidade]":
+    def consultar_habilidades_por_interesses(self, interesses: "list[str]") -> "list[dict]":
         return
 
     @abc.abstractmethod
-    def atualizar(self, habilidade: Habilidade):
+    def atualizar(self, habilidade: dict):
         return
 
     @abc.abstractmethod
-    def remover(self, habilidade: Habilidade):
+    def remover(self, habilidade: dict):
         return
