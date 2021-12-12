@@ -1,9 +1,17 @@
-version: "3.9"
+version: "3.3"
 services:
   habilidade:
     build: ./servico-habilidade/
     ports:
-      - "5000:5000"
+      - "5001:5001"
+  plano_desenvolvimento:
+    build: ./servico-plano-desenvolvimento/
+    ports:
+      - "5002:5002"
+  gatewat:
+    build: ./gateway/
+    ports:
+      - "8000:8000"
     # volumes:
     #   - .:/code
     # environment:
