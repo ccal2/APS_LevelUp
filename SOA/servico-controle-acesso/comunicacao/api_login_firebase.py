@@ -10,9 +10,9 @@ class APILoginFirebase:
         self.url_base = "https://identitytoolkit.googleapis.com/v1"
 
     def login(self, email: str, senha: str):
-        LINK_DO_REQUEST = f"{self.url_base}/accounts:signInWithPassword?key={}"
+        url = f"{self.url_base}/accounts:signInWithPassword?key={self.chave_api}"
 
         detalhes = {"email": email, "password": senha, "returnSecureToken": True}
-        resultado = requests.post(LINK_DO_REQUEST.format(self.chave_api), data=detalhes)
+        resultado = requests.post(url, data=detalhes)
 
         return resultado.json()

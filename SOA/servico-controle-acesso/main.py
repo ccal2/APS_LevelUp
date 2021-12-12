@@ -10,7 +10,7 @@ load_dotenv()
 FLASK_APP_SECRET_KEY = os.getenv("FLASK_APP_SECRET_KEY")
 
 # Initialize Firestore DB
-cred = credentials.Certificate("app/serviceAccountKey.json")
+cred = credentials.Certificate("./serviceAccountKey.json")
 default_app = initialize_app(cred)
 
 # Esse import precisa ser depois do 'initialize_app'
