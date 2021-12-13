@@ -3,8 +3,7 @@ from flask import session
 from comunicacao.comunicacao_back import ComunicacaoBack
 
 
-
-class TelaHabilidadesControle:
+class ControleTelaHabilidades:
     def __init__(self):
         self.tela = "TelaHabilidades.html"
         self.comunicacao_back = ComunicacaoBack()

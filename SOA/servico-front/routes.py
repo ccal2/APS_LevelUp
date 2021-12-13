@@ -1,10 +1,12 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for, request
 
-from controles.tela_habilidades import TelaHabilidadesControle
+from controles.controle_tela_login import ControleTelaLogin
+from controles.controle_tela_habilidades import ControleTelaHabilidades
 
 bp = Blueprint("routes", __name__)
 
-controle_tela_habilidades = TelaHabilidadesControle()
+controle_tela_login = ControleTelaLogin()
+controle_tela_habilidades = ControleTelaHabilidades()
 
 @bp.route("/", methods=["GET"])
 def tela_redirecionamento_inicial():
@@ -13,14 +15,11 @@ def tela_redirecionamento_inicial():
 
 @bp.route("/login", methods=["GET", "POST"])
 def tela_login_usuario_controle():
-    # erro = None
-    # if request.method == "POST":
-    #     resultado = controleLoginUsuario.realizar_login(request.form["email"], request.form["senha"])
-    #     erro = resultado["erro"]    
-    #     if erro is None:
-    #         return redirect("/inicio")
-    # return render_template(controleLoginUsuario.tela, erro=erro)
-    return render_template("TelaLoginUsuario.html")
+    erro = None
+    if request.method == "POST":
+        resultado = controle_tela_login.realizar_login()
+        erro = resultado.get("erro")
+    return render_template("TelaLoginUsuario.html", erro=erro)
 
 
 @bp.route("/inicio", methods=["GET"])
