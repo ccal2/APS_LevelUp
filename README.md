@@ -19,11 +19,13 @@ A Level Up é uma plataforma que auxilia no desenvolvimento pessoal e profission
 ### RUP
 ```bash
 cd RUP
+pip3 install -r requirements.txt # Se for a primeira vez
 python3 app/main.py
 ```
 
 ### SOA
 ```bash
 cd SOA
+docker-compose build # Se for a primeira vez
 docker-compose up
 ```
