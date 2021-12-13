@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "bb8a01f9-19e7-43e3-b5a6-3b13248bd565",
+		"name": "Controle de Acesso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "sucesso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ccal2@cin.ufpe.br\",\n    \"senha\": \"senha123\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_gateway}}/servico-controle-acesso/login",
+							"host": [
+								"{{url_gateway}}"
+							],
+							"path": [
+								"servico-controle-acesso",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "email não cadastrado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ccal2@gmail.com\",\n    \"senha\": \"senha1253\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_gateway}}/servico-controle-acesso/login",
+							"host": [
+								"{{url_gateway}}"
+							],
+							"path": [
+								"servico-controle-acesso",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "senha incorreta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ccal2@cin.ufpe.br\",\n    \"senha\": \"senha1253\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_gateway}}/servico-controle-acesso/login",
+							"host": [
+								"{{url_gateway}}"
+							],
+							"path": [
+								"servico-controle-acesso",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

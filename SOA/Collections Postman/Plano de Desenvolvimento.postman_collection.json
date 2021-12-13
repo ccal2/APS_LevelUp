@@ -11,11 +11,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url_base_plano_de_desenvolvimento}}/plano-de-desenvolvimento/{{id_colaborador}}",
+					"raw": "{{url_gateway}}/servico-plano-desenvolvimento/plano-de-desenvolvimento/{{id_colaborador}}",
 					"host": [
-						"{{url_base_plano_de_desenvolvimento}}"
+						"{{url_gateway}}"
 					],
 					"path": [
+						"servico-plano-desenvolvimento",
 						"plano-de-desenvolvimento",
 						"{{id_colaborador}}"
 					]
@@ -29,11 +30,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url_base_plano_de_desenvolvimento}}/plano-de-desenvolvimento/a{{id_colaborador}}",
+					"raw": "{{url_gateway}}/servico-plano-desenvolvimento/plano-de-desenvolvimento/a{{id_colaborador}}",
 					"host": [
-						"{{url_base_plano_de_desenvolvimento}}"
+						"{{url_gateway}}"
 					],
 					"path": [
+						"servico-plano-desenvolvimento",
 						"plano-de-desenvolvimento",
 						"a{{id_colaborador}}"
 					]
@@ -47,11 +49,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url_base_plano_de_desenvolvimento}}/plano-de-desenvolvimento/{{id_colaborador_2}}",
+					"raw": "{{url_gateway}}/servico-plano-desenvolvimento/plano-de-desenvolvimento/{{id_colaborador_2}}",
 					"host": [
-						"{{url_base_plano_de_desenvolvimento}}"
+						"{{url_gateway}}"
 					],
 					"path": [
+						"servico-plano-desenvolvimento",
 						"plano-de-desenvolvimento",
 						"{{id_colaborador_2}}"
 					]

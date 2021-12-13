@@ -26,11 +26,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url_base_habilidade}}/habilidades",
+									"raw": "{{url_gateway}}/servico-habilidade/habilidades",
 									"host": [
-										"{{url_base_habilidade}}"
+										"{{url_gateway}}"
 									],
 									"path": [
+										"servico-habilidade",
 										"habilidades"
 									]
 								}
@@ -52,11 +53,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url_base_habilidade}}/habilidades",
+									"raw": "{{url_gateway}}/servico-habilidade/habilidades",
 									"host": [
-										"{{url_base_habilidade}}"
+										"{{url_gateway}}"
 									],
 									"path": [
+										"servico-habilidade",
 										"habilidades"
 									]
 								}
@@ -78,11 +80,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url_base_habilidade}}/habilidades",
+									"raw": "{{url_gateway}}/servico-habilidade/habilidades",
 									"host": [
-										"{{url_base_habilidade}}"
+										"{{url_gateway}}"
 									],
 									"path": [
+										"servico-habilidade",
 										"habilidades"
 									]
 								}
@@ -109,11 +112,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url_base_habilidade}}/habilidades",
+									"raw": "{{url_gateway}}/servico-habilidade/habilidades",
 									"host": [
-										"{{url_base_habilidade}}"
+										"{{url_gateway}}"
 									],
 									"path": [
+										"servico-habilidade",
 										"habilidades"
 									]
 								}
@@ -135,11 +139,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url_base_habilidade}}/habilidades",
+									"raw": "{{url_gateway}}/servico-habilidade/habilidades",
 									"host": [
-										"{{url_base_habilidade}}"
+										"{{url_gateway}}"
 									],
 									"path": [
+										"servico-habilidade",
 										"habilidades"
 									]
 								}
@@ -161,11 +166,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url_base_habilidade}}/habilidades",
+									"raw": "{{url_gateway}}/servico-habilidade/habilidades",
 									"host": [
-										"{{url_base_habilidade}}"
+										"{{url_gateway}}"
 									],
 									"path": [
+										"servico-habilidade",
 										"habilidades"
 									]
 								}
@@ -189,11 +195,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url_base_habilidade}}/habilidades",
+							"raw": "{{url_gateway}}/servico-habilidade/habilidades",
 							"host": [
-								"{{url_base_habilidade}}"
+								"{{url_gateway}}"
 							],
 							"path": [
+								"servico-habilidade",
 								"habilidades"
 							]
 						}
