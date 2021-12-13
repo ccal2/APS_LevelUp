@@ -11,6 +11,7 @@ class ControleTelaLogin:
     def realizar_login(self) -> dict:
         # Verificar se form foi enviado
         if not request.form:
+            session["email_usuario"] = None
             return {
                 "erro": "Body inváildo. Deve ter um form com \"email\" e \"senha\"."
             }
@@ -19,13 +20,16 @@ class ControleTelaLogin:
         email = request.form.get("email")
         senha = request.form.get("senha")
         if email is None or senha is None:
+            session["email_usuario"] = None
             return {
                 "erro": "Body inváildo. O form deve ter os campos \"email\" e \"senha\"."
             }
 
         resultado = self.comunicacao_back.realizar_login(email, senha)
 
-        if resultado.get("erro") is not None:
+        if resultado.get("erro") is None:
+            session["email_usuario"] = None
+        else:
             session["email_usuario"] = email
 
         return resultado
