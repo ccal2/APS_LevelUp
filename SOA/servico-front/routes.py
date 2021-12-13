@@ -19,6 +19,8 @@ def tela_login_usuario_controle():
     if request.method == "POST":
         resultado = controle_tela_login.realizar_login()
         erro = resultado.get("erro")
+        if erro is None:
+            return redirect(url_for("routes.tela_inicio_controle"))
     return render_template("TelaLoginUsuario.html", erro=erro)
 
 
@@ -31,7 +33,7 @@ def tela_inicio_controle():
 def tela_habilidades():
     resultado = controle_tela_habilidades.consultar_habilidades()
     erro = resultado.get("erro")
-    habilidades =  resultado.get("habilidades")
+    habilidades = resultado.get("habilidades")
     return render_template("TelaHabilidades.html", erro=erro, habilidades=habilidades)
 
 
