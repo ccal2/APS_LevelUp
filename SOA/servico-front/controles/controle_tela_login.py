@@ -27,7 +27,7 @@ class ControleTelaLogin:
 
         resultado = self.comunicacao_back.realizar_login(email, senha)
 
-        if resultado.get("erro") is None:
+        if resultado.get("erro") is not None:
             session["email_usuario"] = None
         else:
             session["email_usuario"] = email
