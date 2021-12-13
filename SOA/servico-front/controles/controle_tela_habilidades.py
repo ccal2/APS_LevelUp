@@ -9,8 +9,7 @@ class ControleTelaHabilidades:
         self.comunicacao_back = ComunicacaoBack()
 
     def consultar_habilidades(self) -> dict:
-        # email = session.get("email_usuario")
-        email = "ccal2@cin.ufpe.br"
+        email = session.get("email_usuario")
 
         if not email:
             return {"erro": "Nenhum usuário logado"}
