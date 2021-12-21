@@ -12,7 +12,9 @@ A Level Up é uma plataforma que auxilia no desenvolvimento pessoal e profission
 ## Entregas
 
 * [Escopo do projeto](/Escopo.pdf)
-* [Apresentação RUP](/Apresentação.pdf)
+* [Apresentação RUP](/RUP/Apresentação.pdf)
+* [Apresentação SOA](/SOA/Apresentação.pdf)
+* [Diagramas SOA](/SOA/modelos)
 
 
 ## Rodar Projeto
